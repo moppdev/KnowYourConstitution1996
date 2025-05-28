@@ -1,0 +1,34 @@
+/* Import TailwindCSS */
+@import "tailwindcss";
+
+/* 
+    Font PSA: They're called in index.html
+
+    Use...
+
+    Bitter Regular 28 - H1s
+    Raleway 24 - sub headings (h2 onward)
+    Kanit Light 16 - paragraphs
+    Kanit Extra Light 13 - small modal paragraphs
+    Raleway Medium 15- small sub headings
+*/
+
+body {
+    background-color: var(--background-color);
+    color: var(--text);
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* Other variables */
+:root {
+    --background-color: #F4F1ED;
+    --text: #1C1C1C;
+    --border-link-button: #3B82F6;
+    --header-footer-nav: #14532D;
+    --header-footer-nav-text: #D1A052;
+}
