@@ -11,12 +11,15 @@ export function Footer()
         "text-(--background-color)"];
     const classString = footerClasses.join(" ");
 
-    const githubIconClasses: string[] = ["text-4xl", "pb-2"];
+    const githubIconClasses: string[] = ["text-4xl", "hover:bg-sky-700", "rounded-full"];
     const githubClassString = githubIconClasses.join(" ");
 
     return (
         <footer className={classString}>
-            <FontAwesomeIcon icon={faGithub} className={githubClassString}/>
+            <a href="https://github.com/moppdev/KnowYourConstitution1996" target="_blank">
+                <FontAwesomeIcon icon={faGithub} className={githubClassString}/>
+            </a>
+
             <p>
                 Made with ❤️ by Marco Oppel and other, awesome contributors
             </p>
