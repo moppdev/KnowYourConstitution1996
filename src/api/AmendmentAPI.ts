@@ -13,9 +13,11 @@ const apiBase = axios.create({
 // This function gets all amendments from the API
 export default async function getAmendments()
 {
-    await apiBase.get("/amendments").then(
-        (response) => {
-            return response;
-        }
-    );
+    try {
+        const response = await apiBase.get("/amendments");
+        return response.data;
+    } catch (error) {
+        console.error(`Error getting amendments: ${error}`);
+        return null;
+    }
 }
