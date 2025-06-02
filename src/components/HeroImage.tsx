@@ -10,7 +10,7 @@ export default function HeroImage({imgInfo, overlaidText})
     const heroClasses: string[] = [ "md:max-h-130", "overflow-hidden", "relative"];
     const heroClassString = heroClasses.join(" "); 
 
-    const textClasses: string[] = ["text-(--background-color)", "text-center", "max-[445px]:text-[0.545em]", "text-xs", "sm:text-s", "md:text-xl", "mx-7", "md:mx-10"];
+    const textClasses: string[] = ["text-(--background-color)", "text-center", "max-[445px]:text-[0.7em]", "text-xs", "sm:text-s", "md:text-xl", "mx-7", "md:mx-10"];
     const textClassString = textClasses.join(" "); 
 
     const imgClasses: string[] = ["object-cover",  "lg:object-fill", "xl:object-scale-down", "2xl:object-fill", "2xl:object-bottom-right", "min-[1700px]:object-[55%_255%]", "md:object-right"];
@@ -19,6 +19,7 @@ export default function HeroImage({imgInfo, overlaidText})
     const overlayClasses: string[] = ["absolute", "inset-0", "bg-black/70", "flex", "justify-center", "items-center"];
     const overlayClassString = overlayClasses.join(" "); 
 
+    // return the component
     return (
         <div id="hero" className={heroClassString}>
             <img src={imgInfo.src} alt={imgInfo.alt} className={imgClassString}/>

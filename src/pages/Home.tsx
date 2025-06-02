@@ -5,6 +5,8 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import HeroImage from '../components/HeroImage';
 import SigningImage from "../assets/mandela-signing-document.jpg";
+import PageTitle from '../components/PageTitle';
+import HeroAttribution from '../components/HeroAttribution';
 
 // This is the home page of the website
 export default function Home() {
@@ -20,32 +22,23 @@ export default function Home() {
   // Get the preamble to the Constitution
   // which will be the text for the Hero Image
 
-  // Initialize state
-  const [preamble, setPreamble] = useState("");
-
-  // Use UseEffect to be able to run getPreamble() and set the preamble state variable
-  useEffect(() => {
-      // async function to call getPreamble and assign it via setPreamble
-      async function fetchPreamble() {
-        const data = await getPreamble();
-        if (data) 
-        {
-          setPreamble(data.preambleContents);
-        }
-      }
-
-    // run the async function
-    fetchPreamble();
-  }, []);
-
+  // A quote from the preamble for the hero image
+  const preamble: string = `We, the people of South Africa, Recognise the injustices of our past; Honour those who suffered for justice and freedom in our land; 
+    Respect those who have worked to build and develop our country; and Believe that South Africa belongs to all who live in it, united in our diversity. We therefore, 
+    through our freely elected representatives, adopt this Constitution as the supreme law of the Republic`;
+  
+  // return the page
   return (
     <>
       <Header />
 
           <Container>
-            <HeroImage imgInfo={imgInfo} overlaidText={`"${preamble}" - The Constitution's Preamble`}/>
+            <HeroImage imgInfo={imgInfo} overlaidText={`"${preamble}..." - A quote from the Constitution's Preamble`}/>
+            <HeroAttribution description={imgInfo.alt} attribution="Adil Bradlow/AFP"/>
 
-            <h1>Welcome to KnowYourConstitution1996!</h1>
+            <PageTitle title="Mine. Yours. Ours. Our rights and freedoms enshrined."/>
+
+
           </Container>
 
       <Footer /> 
