@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { getPreamble } from '../api/MainAPI';
 import Container from '../components/Container';
 import Footer from '../components/Footer'
 import Header from '../components/Header'

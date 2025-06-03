@@ -1,3 +1,4 @@
+// this file handles everything related to the Schedules of the Constitution
 import axios from "axios";
 
 // Declare a new base Axios instance

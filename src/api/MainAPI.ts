@@ -1,5 +1,7 @@
+// this file handles everything related to the Main section (Chapter 1 - 14) of the Constitution
+
 import axios from "axios";
-import type { Preamble } from "../types/Main";
+import type { Chapter, Preamble } from "../types/Main";
 
 // Declare a new base Axios instance
 const apiBase = axios.create({
@@ -15,6 +17,18 @@ export async function getPreamble(): Promise<Preamble | null>
     return response.data;
   } catch (error) {
     console.error("Error fetching preamble:", error);
+    return null;
+  }
+}
+
+// Gets a list of the Chapters
+export async function getChapters(): Promise<Chapter[] | null>
+{
+  try {
+    const response = await apiBase.get("/chapters");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching chapters:", error)
     return null;
   }
 }
