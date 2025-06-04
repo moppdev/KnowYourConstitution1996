@@ -70,7 +70,7 @@ export default function ContentsLanding()
 
                     <HeroImage imgInfo={imgInfo} overlaidText='“The Republic of South Africa is one, sovereign, democratic state founded on the following values: Human dignity, the achievement of equality and the advancement of human rights and freedoms;
                         Non-racialism and non-sexism; Supremacy of the Constitution and the rule of law; Universal adult suffrage, a national common voters roll, regular elections and a multi-party system of democratic government, to ensure accountability, responsiveness and openness.”
-                        - Section 1, Chapter 1: Founding Provisions of the Constitution' />
+                        - Section 1, Chapter 1: Founding Provisions' />
                     <HeroAttribution description={imgInfo.alt} attribution="Corruption Watch"/>
 
                     <PageTitle title="Contents of the Constitution" />

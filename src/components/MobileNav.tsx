@@ -1,51 +1,99 @@
-import { useState } from "react";
+import { faClose, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router";
 
-export default function MobileNav()
+// This component deals with rendering a mobile nav menu
+export default function MobileNav({handleNavMenu, isVisible})
 {
      // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
+
+    // classes for the mobile nav
     const mobileNavClasses: string[] = ["bg-(--header-footer-nav)", "absolute", "left-0", "top-0", 
-        "w-1/2", "h-dvh", "z-10", "border", "list-none", "md:hidden"];
+        "max-[400px]:w-2/3", "min-[401px]:w-1/2", "sm:w-35/100", "h-dvh", "z-10", 
+        "border-r border-(--header-footer-nav-text)", "list-none", "md:hidden",
+        isVisible ? "animate-slide-in-left" : "animate-slide-out-left"];
     const mobileClassString: string = mobileNavClasses.join(" ");
 
-    const activeClasses: string[] = ["text-(--background-color)", "opacity-80"];
+    // classes for when the links in the nav are active
+    const activeClasses: string[] = ["text-(--header-footer-nav-text)", "opacity-80"];
     const activeClassString: string = activeClasses.join(" ");
 
-    const overlayClasses: string[] = ["bg-black", "left-0", "top-0", "w-screen", "h-dvh", "fixed", "opacity-40", "md:hidden"];
+    // classes for the overlay in the background
+    const overlayClasses: string[] = ["bg-black", "left-0", "top-0", "w-screen", "h-dvh", "absolute", "opacity-40", "md:hidden", isVisible ? "animate-slide-in-left" : "animate-slide-out-left"];
     const overlayClassString: string = overlayClasses.join(" ");
 
-    // let animationClasses: string[] = ["animate-fade-right animate-once animate-ease-in-out"];
-    // let animationClassString = animationClasses.join(" ");
+    // classes for the list items in the mobile nav
+    const listItemClasses: string[] = ["border-b", "border-(--header-footer-nav-text)", "mx-3", "pt-4"];
+    const listItemString: string = listItemClasses.join(" "); 
 
-     // state variable that keeps track of the fact that the menu is visible or not
-    const [visible, setVisible] = useState(false);
+    // classes for the icons in the list items in the mobile nav
+    const iconListClasses: string[] = [  "text-l", "float-right", "text-(--header-footer-nav-text)", "mt-[6px]", "mr-[3px]"];
+    const iconListClassString: string = iconListClasses.join(" ");
 
-    function handleNavMenu()
-    {
-        // if (visible) 
-        //     {animationClasses = [""]; animationClassString = animationClasses.join(" ");}
-        // else
-        //     {animationClasses = ["animate-fade-right animate-once animate-ease-in-out"]; animationClassString = animationClasses.join(" ");}
+    // classes for the top "header" of the mobile nav
+    const menuTopClasses: string[] = ["text-xl flex justify-between border-b p-4"];
+    const menuTopClassString: string = menuTopClasses.join(" ");
 
-        setVisible(!visible);
-    }
+    // classes for the close icon in the mobile nav
+    const closeIconClasses: string[] = ["text-2xl font-bold text-(--header-footer-nav-text) mt-[2px]"];
+    const closeIconClassString: string = closeIconClasses.join(" ");
 
+
+    // Return the mobile nav menu + overlay
     return (
         <>
-            <div id="overlay" className={overlayClassString + " " + animationClassString} onPointerDown={handleNavMenu} ></div>
+            <div id="overlay" className={overlayClassString} onPointerDown={handleNavMenu} ></div>
 
-            <nav id="mobile-nav" className={mobileClassString + " " + animationClassString}>
-                <li>
-                    <NavLink to="/" className={({isActive}) => isActive ? activeClassString : ""}>
-                        Nothing
+            <nav id="mobile-nav" className={`mobile-nav` + " " + mobileClassString}>
+                <div className={menuTopClassString}>
+                    <NavLink onPointerDown={handleNavMenu} to="/" className="text-(--header-footer-nav-text)">
+                            KYC1996
                     </NavLink>
-                </li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+
+                    <FontAwesomeIcon icon={faClose} onPointerDown={handleNavMenu} className={closeIconClassString} />
+                </div>
+
+                <ul className="text-xl">
+                        <NavLink to="/" className={({isActive}) => isActive ? activeClassString : ""}>
+                            <li className={listItemString}>
+                                Home
+                                <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
+                            </li>
+                        </NavLink>
+                        <NavLink to="/history" className={({isActive}) => isActive ? activeClassString : ""}>
+                            <li className={listItemString}>
+                                History
+                                <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
+                            </li>
+                        </NavLink>
+                        <NavLink to="/contents" className={({isActive}) => isActive ? activeClassString : ""}>
+                            <li className={listItemString}>
+                                Contents
+                                <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
+                            </li>    
+                        </NavLink>
+                        <NavLink to="/contribute" className={({isActive}) => isActive ? activeClassString : ""}>
+                            <li className={listItemString}>
+                                Contributions
+                                <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
+                            </li>
+                        </NavLink>          
+                        <NavLink to="/api-docs" className={({isActive}) => isActive ? activeClassString : ""}>
+                            <li className={listItemString}>
+                                API
+                                <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
+                            </li>
+                        </NavLink>
+                </ul>
             </nav>
         </>
     )
+}
+
+// Check the prop types
+MobileNav.PropTypes = {
+    isVisible: PropTypes.bool,
+    handleNavMenu: PropTypes.func
 }

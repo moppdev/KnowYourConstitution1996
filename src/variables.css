@@ -44,12 +44,39 @@ h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.mobile-nav {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    color: var(--background-color);
+}
+
 /* Other variables */
-:root {
+/* animations */
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@theme {  
+    --animate-slide-in-left: slide-in-left 0.8s ease-in-out forwards;  
+    --animate-slide-out-left: slide-out-left 0.5s ease-in forwards;  
     --background-color: #F4F1ED;
     --text: #1C1C1C;
     --border-link-button: #3B82F6;
     --header-footer-nav: #14532D;
     --header-footer-nav-text: #D1A052;
 }
-
