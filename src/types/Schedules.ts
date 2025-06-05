@@ -1,10 +1,10 @@
 // Types for return objects related to the Schedules controller of the API
 
-// Type for a list of the Schedules declared in ContentsLanding - NOT FROM API
+// Type for a list of the Schedules
 export interface Schedule
 {
-    title: string,
-    scheduleNumber: string
+    scheduleID: string,
+    scheduleTitle: string
 }
 
 // Type for the return object of the contents of Schedule 1

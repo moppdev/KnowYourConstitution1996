@@ -37,13 +37,13 @@ export default function Header()
         if (!visible) {
             // let the component render, block scrolling of the background, make the menu visible and run the animation
             setShouldRenderNav(true);
-            document.body.classList.add("overflow-hidden");
+            //document.body.classList.add("overflow-hidden");
             setVisible(true);
         } else {
             // if it's visible
             // remove the component after 500ms, during removal reenable scrolling of the background, make the menu invisible and run the animation
             setVisible(false);
-            document.body.classList.remove("overflow-hidden");
+            //document.body.classList.remove("overflow-hidden");
             const timeout = setTimeout(() => setShouldRenderNav(false), 500);
             clearTimeout(timeout);
         }

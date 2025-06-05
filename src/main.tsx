@@ -18,8 +18,12 @@ createRoot(document.getElementById("root")!).render(
 
         <Route path="contents">
           <Route index element={<ContentsLanding />} />
+          <Route path="preamble" element={<ContentsLanding />} />
           <Route path="chapter/:id" element={<ContentsLanding />} />
           <Route path="section/:id"  element={<ContentsLanding />} />
+          <Route path="schedule/:id"  element={<ContentsLanding />} />
+          <Route path="annexure/:id"  element={<ContentsLanding />} />
+          <Route path="amendments"  element={<ContentsLanding />} />
         </Route>
 
         <Route path='history' element={<ShortHistory />}/>

@@ -6,11 +6,14 @@ export default function Footer()
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string
     // More readable
+
+    // Classes for the footer
     const footerClasses: string[] = ["bottom-0", "py-7", "inherit", 
         "w-screen", "bg-(--header-footer-nav)", "text-center", "font-[Kanit]", 
         "text-(--background-color)"];
     const classString = footerClasses.join(" ");
 
+    // classes for the GitHub icon
     const githubIconClasses: string[] = ["text-4xl", "hover:bg-sky-700", "rounded-full", "pb-2"];
     const githubClassString = githubIconClasses.join(" ");
 

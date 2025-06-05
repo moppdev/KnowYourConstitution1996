@@ -19,7 +19,7 @@ body {
     color: var(--text);
 }
 
-p {
+p, div {
     font-family: "Kanit", sans-serif;
     font-weight: 300;
 }
@@ -71,10 +71,19 @@ h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes button-hover {
+  100% {
+    background-color: var(--button-hover);
+    font-weight: bold;
+  }
+}
+
 @theme {  
     --animate-slide-in-left: slide-in-left 0.8s ease-in-out forwards;  
-    --animate-slide-out-left: slide-out-left 0.5s ease-in forwards;  
+    --animate-slide-out-left: slide-out-left 0.5s ease-in forwards;
+    --animate-button-hover: button-hover 0.4 ease-in-out forwards;  
     --background-color: #F4F1ED;
+    --button-hover: #1f4686;
     --text: #1C1C1C;
     --border-link-button: #3B82F6;
     --header-footer-nav: #14532D;

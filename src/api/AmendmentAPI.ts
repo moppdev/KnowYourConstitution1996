@@ -6,15 +6,15 @@ import axios from "axios";
 
 // Declare a new base Axios instance
 const apiBase = axios.create({
-    baseURL: "https://constitution1996.runasp.net/api/v1",
-    timeout: 1000
+    baseURL: "https://constitution1996.runasp.net/api/v1/amendments",
+    timeout: 5000
 });
 
 // This function gets all amendments from the API
 export default async function getAmendments()
 {
     try {
-        const response = await apiBase.get("/amendments");
+        const response = await apiBase.get("/");
         return response.data;
     } catch (error) {
         console.error(`Error getting amendments: ${error}`);

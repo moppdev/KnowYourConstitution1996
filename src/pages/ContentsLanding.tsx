@@ -11,7 +11,11 @@ import { getChapters } from "../api/MainAPI";
 import type { Annexure } from "../types/Annexures";
 import { getAnnexures } from "../api/AnnexureAPI";
 import type { Schedule } from "../types/Schedules";
+import getSchedules from "../api/ScheduleAPI";
+import ContentLandingCard from "../components/ContentLandingCard";
 
+// This page acts as the index page for the contents of the Constitution
+// It links to all the chapters, annexures, schedules and amendments of the Constitution
 export default function ContentsLanding()
 {
     // Info for the Hero Image
@@ -20,26 +24,21 @@ export default function ContentsLanding()
         "alt": "The hard-copy version of the Constitution laid on a table"
     };
 
-    const sectionClasses: string[] = ["pl-6", "md:pl-14"];
+    // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
+    // Classes for the sections
+    const sectionClasses: string[] = ["pl-6", "pb-7", "md:pl-14"];
     const sectionClassString: string = sectionClasses.join(" ");
 
+    // Use the useState hook to create state variables for chapters, annexures, amendments and schedules
     const [chapters, setChapters] =  useState<Chapter[] | null>(null);
     const [annexures, setAnnexures] =  useState<Annexure[] | null>(null);
-    const schedules: Schedule[] = [
-        { scheduleNumber: "1", title: "Schedule 1: National Flag" },
-        { scheduleNumber: "1A", title: "Schedule 1A: Geographical Areas of Provinces" },
-        { scheduleNumber: "2", title: "Schedule 2: Oaths and Solemn Affirmations" },
-        { scheduleNumber: "3", title: "Schedule 3: Election Procedures" },
-        { scheduleNumber: "4", title: "Schedule 4: Functional Areas of Concurrent National and Provincial Legislative Competence" },
-        { scheduleNumber: "5", title: "Schedule 5: Functional Areas of Exclusive Provincial Legislative Competence" },
-        { scheduleNumber: "6", title: "Schedule 6: Transitional Arrangements" },
-        { scheduleNumber: "7", title: "Schedule 7: Laws Repealed" }
-    ];
+    const [schedules, setSchedules] = useState<Schedule[] | null>(null);
+    //const [amendments, setAmendments] = useState<Amendment[] | null>(null);
 
     // Call the list of chapters and annexures from the API
     // change the state variables with useEffect
     useEffect(() => {
-        // async function that gets the Chapters
+        // async function that gets the chapters
         async function fetchChapters()
         {
             const data: Chapter[] | null = await getChapters();
@@ -57,10 +56,32 @@ export default function ContentsLanding()
             {
                 setAnnexures(data);
             }
+        }        
+        
+        // async function that gets the schedules
+        async function fetchSchedules()
+        {
+            const data: Schedule[] | null = await getSchedules();
+            if (data) 
+            {
+                setSchedules(data);
+            }
         }
+
+        // // async function that gets the amendments
+        // async function fetchAmendments()
+        // {
+        //     const data: Amendment[] | null = await getAmendments();
+        //     if (data) 
+        //     {
+        //         setAmendments(data);
+        //     }
+        // }
 
         fetchChapters();
         fetchAnnexures();
+        fetchSchedules();
+        //fetchAmendments();
     }, [])
 
     return (
@@ -78,35 +99,71 @@ export default function ContentsLanding()
 
                     <section id="chapters" className={sectionClassString}>
                         <h2 className="text-2xl">Chapters</h2>
-                        {/* {chapters && chapters.length > 0 && (
-                            chapters.map((elem) => (
-                                (elem.chapterID == 0) ?
-                                (
-                                    <div key={elem.chapterID}>
-                                        {elem.chapterTitle}
-                                    </div>
-                                ) : (
-                                    <div key={elem.chapterID}>
-                                        Chapter {elem.chapterID} - {elem.chapterTitle}
-                                    </div>  
+                        {
+                            /* Display cards that will take the user to each chapter of the Constitution*/
+                            chapters && (chapters.map((chapter) => 
+                                    (
+                                        (chapter.chapterID === 0 && chapter.chapterTitle === "Preamble" ?
+                                            <ContentLandingCard key={chapter.chapterID} type="chapter" name={chapter.chapterTitle} link="/preamble"/>
+                                         :                                            
+                                            <ContentLandingCard type="chapter" key={chapter.chapterID} name={`Chapter ${chapter.chapterID} - ${chapter.chapterTitle}`} link={`/chapter/${chapter.chapterID}`}/>)
+                                    )
                                 )
-                            ))
-                        )} */}
-                    </section>
+                            )
+                        }
 
-                    <section id="annexures" className={sectionClassString}>
-                        <h2 className="text-2xl">Annexures</h2>
-                        {/* {annexures && annexures.length > 0 && (
-                            annexures.map((elem) => (
-                                    <div key={elem.annexureID}>
-                                        Annexure {elem.annexureID} - {elem.annexureTitle}
-                                    </div>
-                            ))
-                        )} */}
+                        {   
+                            // If chapters is null or empty, display a message
+                            (!chapters || chapters.length === 0) && (
+                                <p>Something went wrong with retrieving the list of chapters</p>
+                            )
+                        }
                     </section>
 
                     <section id="schedules" className={sectionClassString}>
                         <h2 className="text-2xl">Schedules</h2>
+                        {
+                            /* Display cards that will take the user to each schedule of the Constitution*/
+                            schedules && (schedules.map((schedule) =>                      
+                                <ContentLandingCard type="schedule" key={schedule.scheduleID} name={`Schedule ${schedule.scheduleID} - ${schedule.scheduleTitle}`} 
+                                link={`/schedule/${schedule.scheduleID.toLowerCase()}`}/>)
+                            )
+                        }
+
+                        {   
+                            // If schedules is null or empty, display a message
+                            (!schedules || schedules.length === 0) && (
+                                <p>Something went wrong with retrieving the list of schedules</p>
+                            )
+                        }
+                    </section>
+
+                    <section id="annexures" className={sectionClassString}>
+                        <h2 className="text-2xl">Annexures</h2>
+                        {
+                            /* Display cards that will take the user to each annexure of the Constitution*/
+                            annexures && (annexures.map((annexure) =>                      
+                                <ContentLandingCard type="annexure" key={annexure.annexureID} name={`Annexure ${annexure.annexureID} - ${annexure.annexureTitle}`} 
+                                link={`/annexure/${annexure.annexureID}`}/>)
+                            )
+                        }
+
+                        {   
+                            // If annexures is null or empty, display a message
+                            (!annexures || annexures.length === 0) && (
+                                <p>Something went wrong with retrieving the list of annexures</p>
+                            )
+                        }
+                    </section>
+
+                    <section id="amendments" className={sectionClassString}>
+                        <h2 className="text-2xl">Amendments</h2>
+                        {
+                            /* Display cards that will take the user to amendments of the Constitution*/                 
+                                <ContentLandingCard type="amendment" key="amendments"
+                                name={`amendments`} 
+                                link={`/amendments`}/>
+                        }
                     </section>
 
                 </Container>
