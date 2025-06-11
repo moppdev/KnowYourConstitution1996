@@ -12,7 +12,7 @@ export default function Header()
     // More readable
 
     // Classes for the header
-    const headerClasses: string[] = ["top-0", "p-6", "w-screen", 
+    const headerClasses: string[] = ["top-0", "p-6", "w-screen", "max-[340px]:w-lvw",
         "bg-(--header-footer-nav)", "text-(--header-footer-nav-text)", "flex items-center justify-between", "sticky", "z-10"];
     const headerClassString = headerClasses.join(" ");
 
@@ -37,13 +37,11 @@ export default function Header()
         if (!visible) {
             // let the component render, block scrolling of the background, make the menu visible and run the animation
             setShouldRenderNav(true);
-            //document.body.classList.add("overflow-hidden");
             setVisible(true);
         } else {
             // if it's visible
             // remove the component after 500ms, during removal reenable scrolling of the background, make the menu invisible and run the animation
             setVisible(false);
-            //document.body.classList.remove("overflow-hidden");
             const timeout = setTimeout(() => setShouldRenderNav(false), 500);
             clearTimeout(timeout);
         }

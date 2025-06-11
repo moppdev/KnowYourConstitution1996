@@ -1,6 +1,6 @@
 // this file handles everything related to the Annexures of the Constitution
 import axios from "axios";
-import type { Annexure } from "../types/Annexures";
+import type { Annexure, FullAnnexure } from "../types/Annexures";
 
 // Declare a new base Axios instance
 const apiBase = axios.create({
@@ -8,6 +8,7 @@ const apiBase = axios.create({
     timeout: 5000
 });
 
+// Get a list of all annexures from the API
 export async function getAnnexures(): Promise<Annexure[] | null>
 {
     try {
@@ -15,6 +16,18 @@ export async function getAnnexures(): Promise<Annexure[] | null>
         return response.data;
     } catch (error) {
         console.error(`Error in getting annexures: ${error}`)
+        return null;
+    }
+}
+
+// Get a specific annexure by letter from the API
+export async function getAnnexureByLetter(letter: "A" | "B" | "C" | "D"): Promise<FullAnnexure | null>
+{
+    try {
+        const response = await apiBase.get(`/${letter}/full`);
+        return response.data;
+    } catch (error) {
+        console.error(`Error in getting annexure ${letter}: ${error}`);
         return null;
     }
 }

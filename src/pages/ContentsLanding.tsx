@@ -1,3 +1,10 @@
+import { useEffect, useState } from "react";
+import type { Chapter } from "../types/Main";
+import { getChapters } from "../api/MainAPI";
+import type { Annexure } from "../types/Annexures";
+import { getAnnexures } from "../api/AnnexureAPI";
+import type { Schedule } from "../types/Schedules";
+import {getSchedules } from "../api/ScheduleAPI";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -5,19 +12,15 @@ import HeroImage from "../components/HeroImage";
 import ConstitutionImage from "../assets/constitution-feature.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
-import { useEffect, useState } from "react";
-import type { Chapter } from "../types/Main";
-import { getChapters } from "../api/MainAPI";
-import type { Annexure } from "../types/Annexures";
-import { getAnnexures } from "../api/AnnexureAPI";
-import type { Schedule } from "../types/Schedules";
-import getSchedules from "../api/ScheduleAPI";
 import ContentLandingCard from "../components/ContentLandingCard";
 
 // This page acts as the index page for the contents of the Constitution
 // It links to all the chapters, annexures, schedules and amendments of the Constitution
 export default function ContentsLanding()
 {
+    // Change the title in the browser tab
+    document.title = "KYC1996: Contents";
+
     // Info for the Hero Image
     const imgInfo = {
         "src": ConstitutionImage,
@@ -33,7 +36,6 @@ export default function ContentsLanding()
     const [chapters, setChapters] =  useState<Chapter[] | null>(null);
     const [annexures, setAnnexures] =  useState<Annexure[] | null>(null);
     const [schedules, setSchedules] = useState<Schedule[] | null>(null);
-    //const [amendments, setAmendments] = useState<Amendment[] | null>(null);
 
     // Call the list of chapters and annexures from the API
     // change the state variables with useEffect
@@ -42,46 +44,26 @@ export default function ContentsLanding()
         async function fetchChapters()
         {
             const data: Chapter[] | null = await getChapters();
-            if (data) 
-            {
-                setChapters(data);
-            }
+            setChapters(data);
         }
 
         // async function that gets the annexures
         async function fetchAnnexures()
         {
             const data: Annexure[] | null = await getAnnexures();
-            if (data) 
-            {
-                setAnnexures(data);
-            }
+            setAnnexures(data);
         }        
         
         // async function that gets the schedules
         async function fetchSchedules()
         {
             const data: Schedule[] | null = await getSchedules();
-            if (data) 
-            {
-                setSchedules(data);
-            }
+            setSchedules(data);
         }
-
-        // // async function that gets the amendments
-        // async function fetchAmendments()
-        // {
-        //     const data: Amendment[] | null = await getAmendments();
-        //     if (data) 
-        //     {
-        //         setAmendments(data);
-        //     }
-        // }
 
         fetchChapters();
         fetchAnnexures();
         fetchSchedules();
-        //fetchAmendments();
     }, [])
 
     return (
@@ -106,7 +88,7 @@ export default function ContentsLanding()
                                         (chapter.chapterID === 0 && chapter.chapterTitle === "Preamble" ?
                                             <ContentLandingCard key={chapter.chapterID} type="chapter" name={chapter.chapterTitle} link="/preamble"/>
                                          :                                            
-                                            <ContentLandingCard type="chapter" key={chapter.chapterID} name={`Chapter ${chapter.chapterID} - ${chapter.chapterTitle}`} link={`/chapter/${chapter.chapterID}`}/>)
+                                            <ContentLandingCard type="chapter" key={chapter.chapterID} name={`Chapter ${chapter.chapterID}: ${chapter.chapterTitle}`} link={`/chapter/${chapter.chapterID}`}/>)
                                     )
                                 )
                             )
@@ -125,7 +107,7 @@ export default function ContentsLanding()
                         {
                             /* Display cards that will take the user to each schedule of the Constitution*/
                             schedules && (schedules.map((schedule) =>                      
-                                <ContentLandingCard type="schedule" key={schedule.scheduleID} name={`Schedule ${schedule.scheduleID} - ${schedule.scheduleTitle}`} 
+                                <ContentLandingCard type="schedule" key={schedule.scheduleID} name={`${schedule.scheduleTitle}`} 
                                 link={`/schedule/${schedule.scheduleID.toLowerCase()}`}/>)
                             )
                         }
@@ -143,8 +125,8 @@ export default function ContentsLanding()
                         {
                             /* Display cards that will take the user to each annexure of the Constitution*/
                             annexures && (annexures.map((annexure) =>                      
-                                <ContentLandingCard type="annexure" key={annexure.annexureID} name={`Annexure ${annexure.annexureID} - ${annexure.annexureTitle}`} 
-                                link={`/annexure/${annexure.annexureID}`}/>)
+                                <ContentLandingCard type="annexure" key={annexure.annexureID} name={`Annexure ${annexure.annexureID}: ${annexure.annexureTitle}`} 
+                                link={`/annexure/${annexure.annexureID.toLowerCase()}`}/>)
                             )
                         }
 

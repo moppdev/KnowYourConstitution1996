@@ -1,10 +1,9 @@
 import { faClose, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PropTypes from "prop-types";
 import { NavLink } from "react-router";
 
 // This component deals with rendering a mobile nav menu
-export default function MobileNav({handleNavMenu, isVisible})
+export default function MobileNav({handleNavMenu, isVisible}: {handleNavMenu: () => void, isVisible: boolean})
 {
      // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
@@ -90,10 +89,4 @@ export default function MobileNav({handleNavMenu, isVisible})
             </nav>
         </>
     )
-}
-
-// Check the prop types
-MobileNav.PropTypes = {
-    isVisible: PropTypes.bool,
-    handleNavMenu: PropTypes.func
 }

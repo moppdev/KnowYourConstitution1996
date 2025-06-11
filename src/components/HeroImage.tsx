@@ -1,8 +1,5 @@
-// Use the prop-types npm library to check prop types
-import PropTypes from "prop-types";
-
 // This component returns a hero image for all pages except those that handle api DOCS
-export default function HeroImage({imgInfo, overlaidText})
+export default function HeroImage({imgInfo, overlaidText}: {imgInfo: {src: string, alt: string}, overlaidText: string})
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
@@ -32,13 +29,4 @@ export default function HeroImage({imgInfo, overlaidText})
             </div>
         </div>
     )
-}
-
-// Check the propTypes with the prop-types library
-HeroImage.propTypes = {
-    overlaidText: PropTypes.string.isRequired,
-    imgInfo: PropTypes.shape({
-        src: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired
-    })
 }

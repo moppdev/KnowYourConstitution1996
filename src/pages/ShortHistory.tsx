@@ -9,7 +9,10 @@ import HeroAttribution from "../components/HeroAttribution";
 // The Short History page's TSX, displays a timeline of the creation of the Constitution
 export default function ShortHistory()
 {
-      // Info for the Hero Image
+    // Change the title in the browser tab
+    document.title = "KYC1996: Short History of the Constitution";
+
+    // Info for the Hero Image
     const imgInfo = {
         "src": QueueImage,
         "alt": "Voters in 1994 queuing to vote in the first all-race democratic elections"

@@ -7,6 +7,10 @@ import ShortHistory from "./pages/ShortHistory.tsx";
 import Contribute from "./pages/Contribute.tsx";
 import DocsLanding from "./pages/DocsLanding.tsx";
 import ContentsLanding from "./pages/ContentsLanding.tsx";
+import AmendmentsContents from "./pages/AmendmentsContents.tsx";
+import PreambleContents from "./pages/PreambleContents.tsx";
+import ScheduleContents from "./pages/ScheduleContents.tsx";
+import AnnexureContents from "./pages/AnnexureContents.tsx";
 
 createRoot(document.getElementById("root")!).render(
   // Using React Router to use routing for the website
@@ -16,15 +20,14 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route index element={<Home />} />
 
-        <Route path="contents">
-          <Route index element={<ContentsLanding />} />
-          <Route path="preamble" element={<ContentsLanding />} />
-          <Route path="chapter/:id" element={<ContentsLanding />} />
-          <Route path="section/:id"  element={<ContentsLanding />} />
-          <Route path="schedule/:id"  element={<ContentsLanding />} />
-          <Route path="annexure/:id"  element={<ContentsLanding />} />
-          <Route path="amendments"  element={<ContentsLanding />} />
-        </Route>
+        <Route path="contents" element={<ContentsLanding />} />
+
+        <Route path="preamble" element={<PreambleContents />} />
+        <Route path="chapter/:id" element={<ContentsLanding />} />
+        <Route path="section/:id"  element={<ContentsLanding />} />
+        <Route path="schedule/:id"  element={<ScheduleContents />} />
+        <Route path="annexure/:id"  element={<AnnexureContents />} />
+        <Route path="amendments"  element={<AmendmentsContents />} />
 
         <Route path='history' element={<ShortHistory />}/>
         <Route path='contribute' element={<Contribute />} />

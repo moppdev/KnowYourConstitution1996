@@ -1,8 +1,5 @@
-// Use the prop-types npm library to check prop types
-import PropTypes from "prop-types";
-
 // Component that returns the h1 title for a page
-export default function PageTitle({title})
+export default function PageTitle({title}: {title: string})
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
@@ -15,9 +12,4 @@ export default function PageTitle({title})
     return (
         <h1 className={titleClassString}>{title}</h1>
     )
-}
-
-// Check the propTypes with the prop-types library
-PageTitle.PropTypes = {
-    title: PropTypes.string.isRequired
 }

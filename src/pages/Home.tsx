@@ -5,6 +5,7 @@ import HeroImage from '../components/HeroImage';
 import SigningImage from "../assets/mandela-signing-document.jpg";
 import PageTitle from '../components/PageTitle';
 import HeroAttribution from '../components/HeroAttribution';
+import DidYouKnow from '../components/DidYouKnow';
 
 // This is the home page of the website's TSX
 export default function Home() {
@@ -36,9 +37,11 @@ export default function Home() {
 
             <PageTitle title="Mine. Yours. Ours. Our rights and freedoms enshrined."/>
 
-          {/* TODO: DYK tab */}
-          {/* TODO: Searchbar and results area */}
-          {/* TODO: Searchbar and results area FAQs */}
+            {/* TODO: DYK tab */}
+            <DidYouKnow />
+
+            {/* TODO: Searchbar and results area */}
+            {/* TODO: Searchbar and results area FAQs */}
           </Container>
 
       <Footer /> 
