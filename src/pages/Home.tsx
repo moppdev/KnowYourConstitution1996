@@ -6,6 +6,8 @@ import SigningImage from "../assets/mandela-signing-document.jpg";
 import PageTitle from '../components/PageTitle';
 import HeroAttribution from '../components/HeroAttribution';
 import DidYouKnow from '../components/DidYouKnow';
+import Search from '../components/Search';
+import FAQ from '../components/FAQ';
 
 // This is the home page of the website's TSX
 export default function Home() {
@@ -32,16 +34,30 @@ export default function Home() {
       <Header />
 
           <Container>
+            
             <HeroImage imgInfo={imgInfo} overlaidText={`"${preamble}..." - A quote from the Constitution's Preamble`}/>
             <HeroAttribution description={imgInfo.alt} attribution="Adil Bradlow/AFP"/>
 
             <PageTitle title="Mine. Yours. Ours. Our rights and freedoms enshrined."/>
 
-            {/* TODO: DYK tab */}
+            <p className="mx-5 md:mx-12 my-5">
+              Welcome to KnowYourConstitution 1996 (KYC1996)! This open-source website provides easy access to the full text of South Africa's current Constitution. 
+
+              Here's a cool fact about the Constitution:
+            </p>
+
             <DidYouKnow />
 
+            <p className="mx-5 md:mx-12 my-5">
+              Need to find something quickly? Why not give the search bar a whirl?
+            </p>
+
             {/* TODO: Searchbar and results area */}
+            <Search />
+
             {/* TODO: Searchbar and results area FAQs */}
+            <FAQ />
+
           </Container>
 
       <Footer /> 
