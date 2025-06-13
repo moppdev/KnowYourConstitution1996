@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// component that implements searching through the constitution contents on Home
 export default function Search()
 {
     // state variable for results found: TODO
@@ -19,7 +20,7 @@ export default function Search()
     const barAndDropperClassString: string = barAndDropperClasses.join(" ");
 
     // classes for the search-options dropdown
-    const dropdownClasses: string[] = ["h-full", "p-3", "w-[35%]", "bg-(--header-footer-nav-text)", "rounded-tl-md", "rounded-bl-md"];
+    const dropdownClasses: string[] = ["h-full", "p-3", "w-[35%]", "bg-(--header-footer-nav-text)", "border-(--header-footer-nav)", "border-r-3", "rounded-tl-md", "rounded-bl-md"];
     const dropdownClassString: string = dropdownClasses.join(" ");
 
     // classes for the search bar itself
@@ -36,8 +37,11 @@ export default function Search()
 
     // return the search component
     return (
-        <>
-            <label htmlFor="dropper" className={labelClassString}>Give the search a whirl:</label>
+        <section id="searcher" className="my-10">
+            <p className="mx-5 md:mx-12 my-5">
+              Need to find something quickly? Why not give the search bar a whirl?
+            </p>
+            <label htmlFor="dropper" className={labelClassString}>Give it a try:</label>
             <div id="search-container" className={searchContainClassString}>
                 <div id="search" className={barAndDropperClassString}>
                     <select name="dropper" className={dropdownClassString} id="search-options">
@@ -55,6 +59,6 @@ export default function Search()
                     </ul>
                 </div>
             </div>
-        </>
+        </section>
     )
 }

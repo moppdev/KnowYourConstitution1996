@@ -47,7 +47,7 @@ export default function DesktopNav()
                 </li>
                 <li className={listItemString}>
                     <NavLink to="/contribute" className={({ isActive }) => isActive ? activeClassString : ""}>
-                        Contributions
+                        Contribute
                     </NavLink>
                 </li>            
                 <li className={lastLinkString}>

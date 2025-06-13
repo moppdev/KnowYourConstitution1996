@@ -48,14 +48,9 @@ export default function Home() {
 
             <DidYouKnow />
 
-            <p className="mx-5 md:mx-12 my-5">
-              Need to find something quickly? Why not give the search bar a whirl?
-            </p>
-
             {/* TODO: Searchbar and results area */}
             <Search />
 
-            {/* TODO: Searchbar and results area FAQs */}
             <FAQ />
 
           </Container>

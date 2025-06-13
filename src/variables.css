@@ -50,8 +50,7 @@ h2, h3, h4, h5, h6 {
     color: var(--background-color);
 }
 
-/* Other variables */
-/* animations */
+/* animations and transitions */
 @keyframes slide-in-left {
   0% {
     transform: translateX(-100%);
@@ -78,6 +77,19 @@ h2, h3, h4, h5, h6 {
   }
 }
 
+.drop-card {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.8s ease-in, max-height 1s ease-in-out;
+}
+
+.show-card {
+  opacity: 1;
+  max-height: 220px;
+}
+
+/* Other TailwindCSS variables */
 @theme {  
     --animate-slide-in-left: slide-in-left 0.8s ease-in-out forwards;  
     --animate-slide-out-left: slide-out-left 0.5s ease-in forwards;

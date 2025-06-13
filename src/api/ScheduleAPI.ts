@@ -6,7 +6,7 @@ import type { Schedule, ScheduleFourFive, ScheduleOne, ScheduleOneA, ScheduleSev
 // Declare a new base Axios instance
 const apiBase = axios.create({
     baseURL: "https://constitution1996.runasp.net/api/v1/schedules",
-    timeout: 5000
+    timeout: 6000
 });
 
 // This function gets all schedules from the API

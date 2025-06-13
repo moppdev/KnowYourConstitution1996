@@ -75,7 +75,7 @@ export default function MobileNav({handleNavMenu, isVisible}: {handleNavMenu: ()
                         </NavLink>
                         <NavLink to="/contribute" className={({isActive}) => isActive ? activeClassString : ""}>
                             <li className={listItemString}>
-                                Contributions
+                                Contribute
                                 <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
                             </li>
                         </NavLink>          

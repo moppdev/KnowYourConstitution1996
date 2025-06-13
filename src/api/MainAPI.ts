@@ -6,7 +6,7 @@ import type { Chapter, Preamble } from "../types/Main";
 // Declare a new base Axios instance
 const apiBase = axios.create({
     baseURL: "https://constitution1996.runasp.net/api/v1/main",
-    timeout: 5000
+    timeout: 6000
 });
 
 // Gets the Preamble

@@ -19,12 +19,12 @@ export default function DidYouKnow()
 
     // return the component
     return (
-        <div className={dykClassString}>
+        <section id="did-you-know" className={dykClassString}>
             <h2 className={headingClassString}>Did You Know?</h2>
 
             <h3 className={titleClassString}>{factoid.title}</h3>
 
             <p className="ml-2">{factoid.content}</p>
-        </div>
+        </section>
     )
 }

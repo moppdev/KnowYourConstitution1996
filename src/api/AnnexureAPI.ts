@@ -5,7 +5,7 @@ import type { Annexure, FullAnnexure } from "../types/Annexures";
 // Declare a new base Axios instance
 const apiBase = axios.create({
     baseURL: "https://constitution1996.runasp.net/api/v1/annexures",
-    timeout: 5000
+    timeout: 6000
 });
 
 // Get a list of all annexures from the API
