@@ -38,6 +38,7 @@ export default function Search()
     // return the search component
     return (
         <section id="searcher" className="my-10">
+            <h3 className="text-xl mx-5 md:mr-40 lg:mr-60 md:ml-12">Search</h3>
             <p className="mx-5 md:mx-12 my-5">
               Need to find something quickly? Why not give the search bar a whirl?
             </p>

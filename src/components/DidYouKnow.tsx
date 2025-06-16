@@ -4,7 +4,7 @@ import { factoids, type Factoid } from "../types/DYK";
 export default function DidYouKnow() 
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
-    const dykClasses: string[] = ["bg-(--background-color)", "rounded-md", "p-4", "mx-5", "mb-4", "md:mr-40", "lg:mr-60", "md:ml-12", "border-(--border-link-button)", "border-2"];
+    const dykClasses: string[] = ["bg-(--background-color)", "rounded-md", "p-4", "mx-5", "mb-9", "md:mr-40", "lg:mr-60", "md:ml-12", "border-(--border-link-button)", "border-2"];
     const dykClassString: string = dykClasses.join(" ");
 
     const titleClasses: string[] = ["my-3", "text-left", "ml-1"];

@@ -40,16 +40,20 @@ export default function Home() {
 
             <PageTitle title="Mine. Yours. Ours. Our rights and freedoms enshrined."/>
 
+            <h3 className="text-xl mx-5 md:mr-40 lg:mr-60 md:ml-12">Welcome to KnowYourConstitution 1996 (KYC1996)!</h3>
+
             <p className="mx-5 md:mx-12 my-5">
-              Welcome to KnowYourConstitution 1996 (KYC1996)! This open-source website provides easy access to the full text of South Africa's current Constitution. 
+              This open-source website provides easy access to the full text of South Africa's current Constitution. 
 
               Here's a cool fact about the Constitution:
             </p>
 
             <DidYouKnow />
 
-            {/* TODO: Searchbar and results area */}
+            <hr className='mx-8 mt-4 text--(-text) opacity-40'/>
+
             <Search />
+            <hr className='mx-8 mt-4 text--(-text) opacity-40'/>
 
             <FAQ />
 

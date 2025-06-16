@@ -32,7 +32,9 @@ export default function ShortHistory()
 
                     <PageTitle title="A short history of the Constitution" />
 
-                    
+                    <section id="history">
+                        
+                    </section>
                 </Container>
             <Footer /> 
             
