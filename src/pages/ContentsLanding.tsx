@@ -13,6 +13,7 @@ import ConstitutionImage from "../assets/constitution-feature.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContentLandingCard from "../components/ContentLandingCard";
+import type { ImgInfo } from "../types/ImgInfo";
 
 // This page acts as the index page for the contents of the Constitution
 // It links to all the chapters, annexures, schedules and amendments of the Constitution
@@ -22,9 +23,10 @@ export default function ContentsLanding()
     document.title = "KYC1996: Contents";
 
     // Info for the Hero Image
-    const imgInfo = {
+    const imgInfo: ImgInfo = {
         "src": ConstitutionImage,
-        "alt": "The hard-copy version of the Constitution laid on a table"
+        "alt": "The hard-copy version of the Constitution laid on a table",
+        "attribution": "Corruption Watch"
     };
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
@@ -74,7 +76,7 @@ export default function ContentsLanding()
                     <HeroImage imgInfo={imgInfo} overlaidText='“The Republic of South Africa is one, sovereign, democratic state founded on the following values: Human dignity, the achievement of equality and the advancement of human rights and freedoms;
                         Non-racialism and non-sexism; Supremacy of the Constitution and the rule of law; Universal adult suffrage, a national common voters roll, regular elections and a multi-party system of democratic government, to ensure accountability, responsiveness and openness.”
                         - Section 1, Chapter 1: Founding Provisions' />
-                    <HeroAttribution description={imgInfo.alt} attribution="Corruption Watch"/>
+                    <HeroAttribution description={imgInfo.alt} attribution={imgInfo.attribution}/>
 
                     <PageTitle title="Contents of the Constitution" />
 

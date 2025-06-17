@@ -8,6 +8,7 @@ import HeroAttribution from '../components/HeroAttribution';
 import DidYouKnow from '../components/DidYouKnow';
 import Search from '../components/Search';
 import FAQ from '../components/FAQ';
+import type { ImgInfo } from '../types/ImgInfo';
 
 // This is the home page of the website's TSX
 export default function Home() {
@@ -15,9 +16,10 @@ export default function Home() {
   document.title = "KYC1996: Home";
 
   // Info for the Hero Image
-  const imgInfo = {
+  const imgInfo: ImgInfo = {
     "src": SigningImage,
-    "alt": "Nelson Mandela signs the 1996 Constitution into law with Cyril Ramaphosa in the background"
+    "alt": "Nelson Mandela signs the 1996 Constitution into law with Cyril Ramaphosa in the background",
+    "attribution": "Adil Bradlow/AFP"
   };
 
   // Get the preamble to the Constitution
@@ -36,11 +38,11 @@ export default function Home() {
           <Container>
             
             <HeroImage imgInfo={imgInfo} overlaidText={`"${preamble}..." - A quote from the Constitution's Preamble`}/>
-            <HeroAttribution description={imgInfo.alt} attribution="Adil Bradlow/AFP"/>
+            <HeroAttribution description={imgInfo.alt} attribution={imgInfo.attribution}/>
 
             <PageTitle title="Mine. Yours. Ours. Our rights and freedoms enshrined."/>
 
-            <h3 className="text-xl mx-5 md:mr-40 lg:mr-60 md:ml-12">Welcome to KnowYourConstitution 1996 (KYC1996)!</h3>
+            <h3 className="text-xl mx-5 md:mr-40 lg:mr-60 md:ml-12">Welcome to KnowYourConstitution1996 (KYC1996)!</h3>
 
             <p className="mx-5 md:mx-12 my-5">
               This open-source website provides easy access to the full text of South Africa's current Constitution. 

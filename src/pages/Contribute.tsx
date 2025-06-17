@@ -6,6 +6,7 @@ import SpeakImage from "../assets/ca.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContributingCard from "../components/ContributingCard";
+import type { ImgInfo } from "../types/ImgInfo";
 
 // The Contribute page shows users how they could contribute to the website or API if they want to
 export default function Contribute()
@@ -35,9 +36,10 @@ export default function Contribute()
     const apiStackClassString: string = apiStackClasses.join(" ");
 
     // Info for the Hero Image
-    const imgInfo = {
+    const imgInfo: ImgInfo = {
         "src": SpeakImage,
-        "alt": "Member of the Constitutional Assembly speaking"
+        "alt": "Member of the Constitutional Assembly speaking",
+        "attribution": "Subash Jeram / Constitutional Assembly"
     };
 
     // return the page
@@ -49,7 +51,7 @@ export default function Contribute()
                     <HeroImage imgInfo={imgInfo} overlaidText='"The resilience of our people and their determination to be free defies all odds: 
                     it is an unshakeable belief in democracy and non-racialism which motivates them to forge ahead." - Message from the Youth Leadership issued from underground 
                     by South African Youth Congress (SAYCO)'/>
-                    <HeroAttribution description={imgInfo.alt} attribution="Subash Jeram / Constitutional Assembly" />
+                    <HeroAttribution description={imgInfo.alt} attribution={imgInfo.attribution} />
 
                     <PageTitle title="Contributing" />
 
