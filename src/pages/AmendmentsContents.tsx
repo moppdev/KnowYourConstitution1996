@@ -32,6 +32,9 @@ export default function AmendmentsContents()
 
     // useEffect hook to fetch the amendments from the API
     useEffect(() => {
+        // Scroll to top arrival implementation
+        window.scrollTo(0, 0);
+
         //async function that gets the amendments
         async function fetchAmendments()
         {

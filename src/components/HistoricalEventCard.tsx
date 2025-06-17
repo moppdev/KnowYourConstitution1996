@@ -8,7 +8,7 @@ export default function HistoricalEventCard({historicalEvent}: {historicalEvent:
     const attributionClasses: string[] = ["text-center", "italic", "text-xs"];
     const attributionClassString: string = attributionClasses.join(" ");
 
-    const cardClasses: string[] = ["my-4", "border-(--border-link-button) border-1", "rounded-sm", "md:max-w-1/2", 
+    const cardClasses: string[] = ["my-4", "border-(--border-link-button) border-2", "rounded-md", "md:max-w-1/2", 
         "even:justify-self-end-safe", "lg:max-w-55/100", "lg:even:float-right", "lg:odd:float-left"];
     const cardClassString: string = cardClasses.join(" ");
 

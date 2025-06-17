@@ -8,8 +8,7 @@ import HeroAttribution from "../components/HeroAttribution";
 import type { ImgInfo } from "../types/ImgInfo";
 import { constitutionHistory } from "../types/History";
 import HistoricalEventCard from "../components/HistoricalEventCard";
-import { Component, useEffect } from "react";
-import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 // The Short History page's TSX, displays a timeline of the creation of the Constitution
 export default function ShortHistory()
@@ -25,7 +24,7 @@ export default function ShortHistory()
     };
 
 
-    // Scroll to top implementation
+    // Scroll to top on arrival implementation
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -45,7 +44,7 @@ export default function ShortHistory()
 
                     <PageTitle title="A short history of the Constitution" />
 
-                    <section id="history" className="grid gap-y-10 mx-5 md:mr-10 lg:mr-10 md:ml-12 lg:inline-block">
+                    <section id="history" className="grid gap-y-15 mx-5 md:mr-10 lg:mr-10 md:ml-12 lg:inline-block">
                         {
                             constitutionHistory && (
                                 constitutionHistory.map((elem, index) => (
@@ -60,8 +59,4 @@ export default function ShortHistory()
             
         </>
     )
-}
-
-function componentDidMount() {
-    throw new Error("Function not implemented.");
 }

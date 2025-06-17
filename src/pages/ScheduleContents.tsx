@@ -32,6 +32,9 @@ export default function ScheduleContents()
     }
 
     useEffect(() => {
+        // Scroll to top on arrival implementation
+        window.scrollTo(0, 0);
+
         // async function that gets the schedule by number
         async function fetchSchedule() {
             if (id) {

@@ -19,8 +19,12 @@ export default function AnnexureContents()
     // Use the useState hook to create state variables for loading and the schedule's contents
     const [loading, setLoading] = useState(true);
     const [annexure, setAnnexures] = useState<FullAnnexure | null>(null);
+    
 
     useEffect(() => {
+        // Scroll to top on arrival implementation
+        window.scrollTo(0, 0);
+        
         // async function that gets the schedule by number
         async function fetchSchedule() {
             if (id) {

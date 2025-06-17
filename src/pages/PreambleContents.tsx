@@ -27,6 +27,9 @@ export default function PreambleContents()
 
     // useEffect hook to fetch the preamble from the API
     useEffect(() => {
+         // Scroll to top on arrival implementation
+        window.scrollTo(0, 0);
+
         //async function that gets the preamble
         async function fetchAmendments()
         {

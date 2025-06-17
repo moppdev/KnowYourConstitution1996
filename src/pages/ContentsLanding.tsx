@@ -42,6 +42,9 @@ export default function ContentsLanding()
     // Call the list of chapters and annexures from the API
     // change the state variables with useEffect
     useEffect(() => {
+        // Scroll to top on arrival implementation
+        window.scrollTo(0, 0);
+        
         // async function that gets the chapters
         async function fetchChapters()
         {
