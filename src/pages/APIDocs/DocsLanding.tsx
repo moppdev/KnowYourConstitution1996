@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import PageTitle from "../components/PageTitle";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import PageTitle from "../../components/PageTitle";
 import { useEffect } from "react";
 
 export default function DocsLanding()
