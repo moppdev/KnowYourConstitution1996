@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import { getScheduleByNumber } from "../api/ScheduleAPI";
+import BackToContents from "../components/BackToContents";
 
 export default function ScheduleContents() 
 {
@@ -14,12 +15,13 @@ export default function ScheduleContents()
     const {id} =  useParams();
 
     // Change the title in the browser tab
-    document.title = `KYC1996: Schedule ${id!.toUpperCase()}`;
+    document.title = `KYC1996 | Schedule ${id!.toUpperCase()}`;
 
     // Use the useState hook to create state variables for loading and the schedule's contents
     const [loading, setLoading] = useState(true);
     const [schedule, setSchedule] = useState<ScheduleOne[] | ScheduleTwo | ScheduleOneA[] | ScheduleThree | ScheduleFourFive[] | ScheduleSix | ScheduleSeven[] | null>(null);
 
+    // object to route ids from number to word format for the API
     const numsToWords = {
         "1": "one",
         "1a": "one/a",
@@ -54,19 +56,25 @@ export default function ScheduleContents()
             <Header />
 
             <Container>
+                <BackToContents />
                 <PageTitle title={`Schedule ${id!.toUpperCase()}`} />
 
                 {loading && (
                     <Loading />
                 )}
+                
+                <section id={`schedule-${id}-content`}>
+                    {!loading && schedule && (
+                        <h2 className="py-4">
+                            <span></span>
+                            <span className="italic underline"></span>
+                        </h2>
+                    )}
 
-                {/* {!loading && schedule && (
-
-                )} */}
-
-                {/* {!loading && (!schedule || schedule) && (
-
-                )} */}
+                    {!loading && (!schedule) && (
+                        <p>Something went wrong with retrieving the contents of Schedule {id!.toUpperCase()}</p>
+                    )}
+                </section>
             </Container>
 
             <Footer />

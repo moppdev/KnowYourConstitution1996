@@ -29,8 +29,7 @@ export const constitutionHistory: HistoricalEvent[] = [
     title: "The Interim Constitution is Adopted",
     date: "18 November 1993",
     content: `The Interim Constitution was passed by the outgoing apartheid-era Parliament led by the National Party, under FW De Klerk, as a negotiated, transitional measure.\n
-    It was the outcome of years of intense negotiation between the African National Congress, National Party, Democratic Party, 
-    and others during the Convention for a Democratic South Africa (CODESA) and Multi-Party Negotiating Process (MPNP).\n
+    It was the outcome of years of intense negotiation between the African National Congress, National Party, Democratic Party, and others during the Convention for a Democratic South Africa (CODESA) and Multi-Party Negotiating Process (MPNP).\n
     It established a Government of National Unity after future elections, enshrined fundamental rights, and tasked a newly elected Parliament with drafting a final constitution within two years. This constitution laid the foundations for the 1996 Constitution.`
   },
   {

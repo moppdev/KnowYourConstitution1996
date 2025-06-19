@@ -13,7 +13,7 @@ import { useEffect } from "react";
 export default function Contribute()
 {
     // Change the title in the browser tab
-    document.title = "KYC1996: Contributions";
+    document.title = "KYC1996 | Contributions";
 
     // Scroll to top on arrival implementation
     useEffect(() => {

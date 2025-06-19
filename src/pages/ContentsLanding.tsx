@@ -20,7 +20,7 @@ import type { ImgInfo } from "../types/ImgInfo";
 export default function ContentsLanding()
 {
     // Change the title in the browser tab
-    document.title = "KYC1996: Contents";
+    document.title = "KYC1996 | Contents";
 
     // Info for the Hero Image
     const imgInfo: ImgInfo = {

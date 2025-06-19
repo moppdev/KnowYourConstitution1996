@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 // This is the home page of the website's TSX
 export default function Home() {
   // Change the title in the browser tab
-  document.title = "KYC1996: Home";
+  document.title = "KYC1996 | Home";
 
   // Info for the Hero Image
   const imgInfo: ImgInfo = {

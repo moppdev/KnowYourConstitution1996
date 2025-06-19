@@ -14,7 +14,7 @@ import { useEffect } from "react";
 export default function ShortHistory()
 {
     // Change the title in the browser tab
-    document.title = "KYC1996: Short History of the Constitution";
+    document.title = "KYC1996 | Short History of the Constitution";
 
     // Info for the Hero Image
     const imgInfo: ImgInfo = {
@@ -44,7 +44,7 @@ export default function ShortHistory()
 
                     <PageTitle title="A short history of the Constitution" />
 
-                    <section id="history" className="grid gap-y-15 mx-5 md:mr-10 lg:mr-10 md:ml-12 lg:inline-block">
+                    <section id="history" className="grid gap-y-8 lg:gap-y-15 mx-5 md:mr-10 lg:mr-10 md:ml-12 lg:inline-block">
                         {
                             constitutionHistory && (
                                 constitutionHistory.map((elem, index) => (

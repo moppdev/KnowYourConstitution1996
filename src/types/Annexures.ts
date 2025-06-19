@@ -12,19 +12,21 @@ export interface FullAnnexure
 {
   annexureID: string,
   annexureTitle: string,
-  annexureSections: [
-    {
-        annexureID: string,
-        sectionID: number,
-        sectionTitle: string,
-        sectionText: string
-    }
-  ],
-  annexureSubsections: [
-    {
-      sectionID: number,
-      subsectionID: string,
-      sectionText: string
-    }
-  ]
+  annexureSections: AnnexureSections[],
+  annexureSubsections: AnnexureSubsections[]
+}
+
+export interface AnnexureSubsections
+{
+    sectionID: number,
+    subsectionID: string,
+    sectionText: string
+}
+
+export interface AnnexureSections
+{
+    annexureID: string,
+    sectionID: number,
+    sectionTitle: string,
+    sectionText: string
 }

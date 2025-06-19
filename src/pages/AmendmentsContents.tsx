@@ -12,7 +12,7 @@ import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 export default function AmendmentsContents()
 {
     // Change the title in the browser tab
-    document.title = "KYC1996: Amendments";
+    document.title = "KYC1996 | Amendments";
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // Classes for the table

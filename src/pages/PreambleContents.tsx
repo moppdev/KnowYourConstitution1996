@@ -6,11 +6,12 @@ import PageTitle from "../components/PageTitle";
 import Loading from "../components/Loading";
 import type { Preamble } from "../types/Main";
 import { getPreamble } from "../api/MainAPI";
+import BackToContents from "../components/BackToContents";
 
 export default function PreambleContents()
 {
     // Change the title in the browser tab
-    document.title = "KYC1996: Preamble";
+    document.title = "KYC1996 | Preamble";
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // Classes for the preamble container
@@ -48,7 +49,7 @@ export default function PreambleContents()
         <>
             <Header />
                 <Container>
-                    
+                    <BackToContents />
                     <PageTitle title={`Preamble to the Constitution`} />
 
                     { !loading && preamble && (

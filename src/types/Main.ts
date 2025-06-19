@@ -63,11 +63,5 @@ export interface FullSection {
 export interface FullChapter {
     chapterID: number;
     chapterTitle: string;
-    fullSections: [
-        sectionID: number,
-        sectionTitle: string,
-        sectionText: string,
-        subSections: Subsection[],
-        clauses: Clause[]
-    ];
+    fullSections: FullSection[];
 }
