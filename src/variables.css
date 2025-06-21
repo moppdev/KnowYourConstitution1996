@@ -77,6 +77,15 @@ h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes emphasise-section {
+  0% {
+    background-color: var(--background-color);
+  }
+  100% {
+    background-color: var(--border-link-button) / 2;
+  }
+}
+
 .drop-card {
   max-height: 0;
   opacity: 0;
@@ -87,6 +96,24 @@ h2, h3, h4, h5, h6 {
 .show-card {
   opacity: 1;
   max-height: 220px;
+}
+
+.drop-sections-card {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 1.2s ease-in, max-height 1.7s ease-in-out;
+}
+
+.show-sections-card {
+  opacity: 1;
+  max-height: 4000px;
+}
+
+.--emphasise-section{
+  animation-name: emphasise-section; 
+  animation-duration: 0.5;
+  animation-timing-function: ease-in;
 }
 
 /* Other TailwindCSS variables */

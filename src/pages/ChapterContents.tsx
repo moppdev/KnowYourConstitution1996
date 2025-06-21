@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import BackToContents from "../components/BackToContents";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
@@ -8,6 +8,7 @@ import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 import type { FullChapter, NonDerogableRight } from "../types/Main";
 import { getChapterContents, getNonDerogableRights } from "../api/MainAPI";
+import ContentNavigatorCard from "../components/ContentNavigatorCard";
 
 export default function ChapterContents()
 {
@@ -17,7 +18,7 @@ export default function ChapterContents()
     // Change the title in the browser tab
     document.title = `KYC1996 | Chapter ${id!}`;
 
-     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
+    // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // classes for the container
     const chapterContainer: string[] = ["mx-5", "md:mx-8", "py-5"];
     const chapterContainerClassString: string = chapterContainer.join(" ");    
@@ -37,14 +38,33 @@ export default function ChapterContents()
     const tableCellClasses: string[] = ["border", "border-(--text)", "p-2", "max-[420px]:p-1"];
     const cellClassString: string = tableCellClasses.join(" ");
 
+    // classes for the bottom navigation
+    const nextClasses: string[] = ["flex", "sm:flex-row", "flex-col", "justify-between", "sm:items-center"];
+    const nextClassString: string = nextClasses.join(" ");
+
     // Use the useState hook to create state variables for loading and the schedule's contents
     const [loading, setLoading] = useState(true);
     const [chapter, setChapter] = useState<FullChapter | null>(null);
     const [nonDerogableRights, setNonDerogableRights] = useState<NonDerogableRight[] | null>(null);
 
+    const {hash} = useLocation();
+
     useEffect(() => {
-        // Scroll to top on arrival implementation
-        window.scrollTo(0, 0);
+        // if user has been led to this page with a link with an id hash
+            if (hash) {
+               setTimeout(() => {
+                     const elem = document.querySelector(hash);
+                    if (elem) 
+                    {
+                        elem.scrollIntoView({ behavior: "smooth"});
+                    }
+                }, 1500);
+            }
+            else
+            {
+                // Scroll to top on arrival implementation
+                window.scrollTo(0, 0);
+            }
 
         // async function that gets the chapter by number
         async function fetchChapter() {
@@ -61,7 +81,7 @@ export default function ChapterContents()
         }
 
         fetchChapter();
-    }, [id])
+    }, [id, hash])
 
     return (
         <>
@@ -185,6 +205,20 @@ export default function ChapterContents()
                 {!loading && !chapter && (
                     <p>Something went wrong with retrieving the contents of Chapter {id!}</p>
                 )}
+
+                <div id="next-options" className={nextClassString}>
+                    {
+                        (parseInt(id!) === 1) ? 
+                        <ContentNavigatorCard contentType="preamble" id="-1" direction="l"/> : 
+                        <ContentNavigatorCard contentType="chapter" id={(parseInt(id!) - 1).toString()} direction="l"/>
+                    }
+
+                    {
+                        (parseInt(id!) === 14) ? 
+                        <ContentNavigatorCard contentType="preamble" id="-1" direction="r"/> : 
+                        <ContentNavigatorCard contentType="chapter" id={(parseInt(id!) + 1).toString()} direction="r"/>
+                    }
+                </div>
             </Container>
 
             <Footer />

@@ -60,7 +60,7 @@ function FAQCard({title, content}: Factoid)
     const faqCardClasses: string[] = ["rounded-md", "border-1", "py-3", "mt-4", "mb-5"];
     const faqCardClassString: string = faqCardClasses.join(" ");
 
-    // classes for each faq card
+    // classes for each faq card's content
     const faqContentClasses: string[] = ["drop-card ml-4 mt-2 mr-2", clicked ? "show-card": ""];
     const faqContentClassString: string = faqContentClasses.join(" ");
 

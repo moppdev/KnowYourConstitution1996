@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 import type { Preamble } from "../types/Main";
 import { getPreamble } from "../api/MainAPI";
 import BackToContents from "../components/BackToContents";
+import ContentNavigatorCard from "../components/ContentNavigatorCard";
 
 export default function PreambleContents()
 {
@@ -72,6 +73,7 @@ export default function PreambleContents()
                         <p>Something went wrong with retrieving the preamble.</p>
                     )}
 
+                    <ContentNavigatorCard id="1" contentType="chapter" direction="r"/>
                 </Container>
             <Footer />
         </>

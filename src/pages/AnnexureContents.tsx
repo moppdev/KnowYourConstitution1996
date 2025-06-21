@@ -8,6 +8,7 @@ import PageTitle from "../components/PageTitle";
 import type { AnnexureSubsections, FullAnnexure } from "../types/Annexures";
 import { getAnnexureByLetter } from "../api/AnnexureAPI";
 import BackToContents from "../components/BackToContents";
+import ContentNavigatorCard from "../components/ContentNavigatorCard";
 
 export default function AnnexureContents() 
 {
@@ -17,11 +18,18 @@ export default function AnnexureContents()
     // Change the title in the browser tab
     document.title = `KYC1996 | Annexure ${id!.toUpperCase()}`;
 
+    // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
+    // classes for the annexure
     const annexureContainer: string[] = ["mx-5", "md:mx-8", "py-5"];
     const annexureContainerClassString: string = annexureContainer.join(" ");    
     
+    // classes for each section
     const sectionContainer: string[] = ["mx-2", "md:mx-13", "py-5"];
     const sectionContainerClassString: string = sectionContainer.join(" ");
+
+    // classes for the bottom navigation
+    const nextClasses: string[] = ["flex", "sm:flex-row", "flex-col", "justify-between", "sm:items-center"];
+    const nextClassString: string = nextClasses.join(" ");
 
     // Use the useState hook to create state variables for loading and the schedule's contents
     const [loading, setLoading] = useState(true);
@@ -30,7 +38,7 @@ export default function AnnexureContents()
 
     useEffect(() => {
         // Scroll to top on arrival implementation - Creates a bug that disables scrolling on this page
-        //window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         
         // async function that gets the schedule by number
         async function fetchSchedule() {
@@ -101,6 +109,41 @@ export default function AnnexureContents()
                 {!loading && !annexure && (
                     <p>Something went wrong retrieving the contents of Annexure {id!.toLowerCase()}</p>
                 )}
+
+                 {/* navigation between annexures */}
+                <div id="next-options" className={nextClassString}>
+                    {
+                        (id! === "a") ? 
+                        <ContentNavigatorCard contentType="annexure" id={"b"} direction="r"/> : 
+                        ""
+                    }
+
+                    {
+                        (id! === "b") ? 
+                        <>
+                            <ContentNavigatorCard contentType="annexure" id={"a"} direction="l"/>
+                            <ContentNavigatorCard contentType="annexure" id={"c"} direction="r"/>
+                        </> : 
+                        ""
+                    }
+
+                    {
+                        (id! === "c") ? 
+                        <>
+                            <ContentNavigatorCard contentType="annexure" id={"b"} direction="l"/>
+                            <ContentNavigatorCard contentType="annexure" id={"d"} direction="r"/>
+                        </> : 
+                        ""
+                    }
+
+                    {
+                        (id! === "d") ? 
+                        <>
+                            <ContentNavigatorCard contentType="annexure" id={"c"} direction="l"/>
+                        </> : 
+                        ""
+                    }
+                </div>
             </Container>
 
             <Footer />
