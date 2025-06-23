@@ -8,7 +8,6 @@ import HeroAttribution from "../components/HeroAttribution";
 import type { ImgInfo } from "../types/ImgInfo";
 import { constitutionHistory } from "../types/History";
 import HistoricalEventCard from "../components/HistoricalEventCard";
-import { useEffect } from "react";
 
 // The Short History page's TSX, displays a timeline of the creation of the Constitution
 export default function ShortHistory()
@@ -22,13 +21,6 @@ export default function ShortHistory()
         "alt": "Voters in 1994 queuing to vote in the first all-race democratic elections",
         "attribution": "Denis Farrell/Associated Press"
     };
-
-
-    // Scroll to top on arrival implementation
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
 
     return (
         <>

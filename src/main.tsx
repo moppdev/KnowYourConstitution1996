@@ -12,12 +12,14 @@ import PreambleContents from "./pages/PreambleContents.tsx";
 import ScheduleContents from "./pages/ScheduleContents.tsx";
 import AnnexureContents from "./pages/AnnexureContents.tsx";
 import ChapterContents from "./pages/ChapterContents.tsx";
+import AutoScrollToTop from "./components/AutoScrollToTop.tsx";
 
 createRoot(document.getElementById("root")!).render(
   // Using React Router to use routing for the website
   // All routes declared below
   <StrictMode>
     <BrowserRouter>
+      <AutoScrollToTop />
       <Routes>
         <Route index element={<Home />} />
 

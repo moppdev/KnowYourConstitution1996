@@ -9,9 +9,10 @@ import PageTitle from "../components/PageTitle";
 import { getScheduleByNumber, getSchedules } from "../api/ScheduleAPI";
 import BackToContents from "../components/BackToContents";
 import ContentNavigatorCard from "../components/ContentNavigatorCard";
-import ScheduleTwoDisplay from "../components/ScheduleTwo";
-import ScheduleSixDisplay from "../components/ScheduleSix";
-import ScheduleThreeDisplay from "../components/ScheduleThree";
+import ScheduleTwoDisplay from "../components/schedules/ScheduleTwo";
+import ScheduleSixDisplay from "../components/schedules/ScheduleSix";
+import ScheduleThreeDisplay from "../components/schedules/ScheduleThree";
+import ScheduleSevenDisplay from "../components/schedules/ScheduleSeven";
 
 export default function ScheduleContents() 
 {
@@ -35,17 +36,17 @@ export default function ScheduleContents()
     const sectionContainer: string[] = ["mx-4", "md:mx-13", "py-5"];
     const sectionContainerClassString: string = sectionContainer.join(" ");
 
-    // object to route ids from number to word format for the API
-    const numsToWords = {
-        "1": "one",
-        "1a": "one/a",
-        "2": "two",
-        "3": "three",
-        "4": "four",
-        "5": "five",
-        "6": "six",
-        "7": "seven"
-    }
+            // object to route ids from number to word format for the API
+        const numsToWords = {
+            "1": "one",
+            "1a": "one/a",
+            "2": "two",
+            "3": "three",
+            "4": "four",
+            "5": "five",
+            "6": "six",
+            "7": "seven"
+        }
 
     useEffect(() => {
         // async function that gets the schedule by number
@@ -68,7 +69,9 @@ export default function ScheduleContents()
         }
 
         fetchSchedule();
-    });
+    }, [id, numsToWords]);
+
+
 
     return (
         <>
@@ -87,7 +90,7 @@ export default function ScheduleContents()
                         // Schedules 1, 1A, 4, 5, 7 use only 1D arrays
                             Array.isArray(schedule) ? (
                                 <>
-                                    {schedule.map((section) => {
+                                    {schedule.map((section, index) => {
                                         // schedule 1 content
                                         if ('sectionID' in section) {
                                             return (
@@ -103,7 +106,9 @@ export default function ScheduleContents()
                                             return (
                                                 <>
                                                     <div className="py-4" key={section.province}>
-                                                        <h2 className="italic underline">{section.province}</h2>
+                                                        <h2 className="py-4">
+                                                            <span className="italic underline text-xl">{`${section.province}`}</span>
+                                                        </h2>
                                                         <ul className="list-none mt-2">
                                                             {
                                                                 section.mapCSV.split(";").map((map) => (
@@ -116,24 +121,34 @@ export default function ScheduleContents()
                                             );
                                         }
 
-                                        // schedule 7 content
-                                        if ('actNum' in section) {
+                                        // schedule 4 and 5 content
+                                        if ("partID" in section)
+                                        {
                                             return (
                                                 <>
-                                                    <table className="py-4">
-                                                        <thead>
-                                                            <th>Act</th>
-                                                            <th>Full Title</th>
-                                                        </thead>
-                                                        <tbody>
-
-                                                        </tbody>
-                                                    </table>
+                                                    <div className="py-4">
+                                                        <h2 className="py-4" id={`section-${section.partID}-desc`}>
+                                                            <span className="italic underline text-xl">{`Part ${section.partID}`}</span>
+                                                        </h2>
+                                                        <ul className="list-none mt-2">
+                                                            {
+                                                                section.partCSV.split(";").map((map) => (
+                                                                    <li key={`${section.partID}-${map}`}>{map}</li>
+                                                                ))
+                                                            }
+                                                        </ul>
+                                                    </div>
                                                 </>
-                                            );//key={section.actNum.replace(" ", "-")}
+                                            )
                                         }
-                                        
+
+                                         if ("actNum" in section && index === schedule.length - 1) {
+                                            return <ScheduleSevenDisplay schedule={schedule as ScheduleSeven[]} />
+                                         }
                                     })}
+
+                                    
+                                       
 
                                     
                                 </>
@@ -150,7 +165,7 @@ export default function ScheduleContents()
                                             <ScheduleThreeDisplay schedule={schedule as ScheduleThree} />
                                         ) ||
 
-                                        "transitionalArrangments" in schedule && (
+                                        "transitionalArrangements" in schedule && (
                                             <ScheduleSixDisplay schedule={schedule as ScheduleSix} />
                                         ) 
                                     }

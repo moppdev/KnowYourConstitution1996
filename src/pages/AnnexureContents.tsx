@@ -37,8 +37,6 @@ export default function AnnexureContents()
     
 
     useEffect(() => {
-        // Scroll to top on arrival implementation - Creates a bug that disables scrolling on this page
-        window.scrollTo(0, 0);
         
         // async function that gets the schedule by number
         async function fetchSchedule() {

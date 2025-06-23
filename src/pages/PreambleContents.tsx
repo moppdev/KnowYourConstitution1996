@@ -29,9 +29,6 @@ export default function PreambleContents()
 
     // useEffect hook to fetch the preamble from the API
     useEffect(() => {
-         // Scroll to top on arrival implementation
-        window.scrollTo(0, 0);
-
         //async function that gets the preamble
         async function fetchAmendments()
         {
@@ -57,8 +54,8 @@ export default function PreambleContents()
                             <div id="preamble-contents" className={preambleClassString}>
                                 {
                                     /* Split the preamble by ";" and return each line as a p element */
-                                    (preamble.preambleContents.split(";").map((line) => (
-                                        <p className={lineClassString}>{line}</p>
+                                    (preamble.preambleContents.split(";").map((line, index) => (
+                                        <p key={`preamble-${index}`} className={lineClassString}>{line}</p>
                                     )))
                                 }
                             </div>

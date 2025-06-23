@@ -7,18 +7,12 @@ import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContributingCard from "../components/ContributingCard";
 import type { ImgInfo } from "../types/ImgInfo";
-import { useEffect } from "react";
 
 // The Contribute page shows users how they could contribute to the website or API if they want to
 export default function Contribute()
 {
     // Change the title in the browser tab
     document.title = "KYC1996 | Contributions";
-
-    // Scroll to top on arrival implementation
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // classes for the container containing the ContributionCards

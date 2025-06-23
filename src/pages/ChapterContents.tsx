@@ -60,11 +60,6 @@ export default function ChapterContents()
                     }
                 }, 1500);
             }
-            else
-            {
-                // Scroll to top on arrival implementation
-                window.scrollTo(0, 0);
-            }
 
         // async function that gets the chapter by number
         async function fetchChapter() {
@@ -129,20 +124,20 @@ export default function ChapterContents()
 
                                                                     if (/^[1-9]{1,2}$/.test(id)) {
                                                                     // Pure digits (1 or 2 numbers only)
-                                                                    return <div>({id}) {subsection.subsectionText}</div>;
+                                                                        return <div>({id}) {subsection.subsectionText}</div>;
                                                                     } else if (/0/.test(id)) {
-                                                                    // Starts with 0
-                                                                    {
-                                                                        if (id.length > 1)
+                                                                        // Starts with 0
                                                                         {
-                                                                            const match = subsection.subsectionID.match(/[a-z]/);
-                                                                            return <div className="ml-3 md:ml-5">({match ? match[0] : subsection.subsectionID}) - {subsection.subsectionText}</div>;
+                                                                            if (id.length > 1)
+                                                                            {
+                                                                                const match = subsection.subsectionID.match(/[a-z]/);
+                                                                                return <div className="ml-3 md:ml-5">({match ? match[0] : subsection.subsectionID}) - {subsection.subsectionText}</div>;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                return <div>{subsection.subsectionText}</div>;
+                                                                            }
                                                                         }
-                                                                        else
-                                                                        {
-                                                                            return <div>{subsection.subsectionText}</div>;
-                                                                        }
-                                                                    }
                                                                     } else {
                                                                     // Alphanumeric like 10a, 11b, etc.
                                                                         if (section.sectionID == 37 && id.trim().toLowerCase() == "5c")

@@ -1,4 +1,4 @@
-import type { ScheduleTwo } from "../types/Schedules";
+import type { ScheduleTwo } from "../../types/Schedules";
 
 // component that displays Schedule Two's contents
 export default function ScheduleTwoDisplay({schedule}: {schedule: ScheduleTwo})
@@ -13,7 +13,10 @@ export default function ScheduleTwoDisplay({schedule}: {schedule: ScheduleTwo})
             {
                 schedule.scheduleTwo_Oaths.map((section) => (
                     <div key={`${section.sectionID}`} id={`section-${section.sectionID}`} className={sectionContainerClassString}>
-                        <h2 className="italic underline">{`${section.sectionID}) ${section.sectionTitle}`}</h2>
+                        <h2 className="py-4" id={`section-${section.sectionID}-desc`}>
+                            <span>{`${section.sectionID})`} </span>
+                            <span className="italic underline text-xl">{`${section.sectionTitle}`}</span>
+                        </h2>
                         <div className="mt-2">
                             {section.sectionText
                                 ? section.sectionText

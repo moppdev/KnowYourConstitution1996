@@ -8,6 +8,7 @@ import getAmendments from "../api/AmendmentAPI";
 import Loading from "../components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
+import BackToContents from "../components/BackToContents";
 
 export default function AmendmentsContents()
 {
@@ -32,9 +33,6 @@ export default function AmendmentsContents()
 
     // useEffect hook to fetch the amendments from the API
     useEffect(() => {
-        // Scroll to top arrival implementation
-        window.scrollTo(0, 0);
-
         //async function that gets the amendments
         async function fetchAmendments()
         {
@@ -53,7 +51,7 @@ export default function AmendmentsContents()
         <>
             <Header />
                 <Container>
-                    
+                    <BackToContents />
                     <PageTitle title={`Amendments to the Constitution`} />
 
                     { !loading && amendments && amendments.length > 0 && (

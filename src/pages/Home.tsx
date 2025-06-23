@@ -9,7 +9,6 @@ import DidYouKnow from '../components/DidYouKnow';
 import Search from '../components/Search';
 import FAQ from '../components/FAQ';
 import type { ImgInfo } from '../types/ImgInfo';
-import { useEffect } from 'react';
 
 // This is the home page of the website's TSX
 export default function Home() {
@@ -22,11 +21,6 @@ export default function Home() {
     "alt": "Nelson Mandela signs the 1996 Constitution into law with Cyril Ramaphosa in the background",
     "attribution": "Adil Bradlow/AFP"
   };
-
-    // Scroll to top on arrival implementation
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
   // Get the preamble to the Constitution
   // which will be the text for the Hero Image

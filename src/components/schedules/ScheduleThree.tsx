@@ -1,4 +1,4 @@
-import type { ScheduleThree } from "../types/Schedules";
+import type { ScheduleThree } from "../../types/Schedules";
 
 // component that displays Schedule Three's contents
 export default function ScheduleThreeDisplay({schedule}: {schedule: ScheduleThree})
@@ -7,8 +7,6 @@ export default function ScheduleThreeDisplay({schedule}: {schedule: ScheduleThre
     // classes for each section
     const sectionContainer: string[] = ["mb-12"];
     const sectionContainerClassString: string = sectionContainer.join(" ");
-
-    console.log(schedule);
 
     return (
         <>
@@ -19,7 +17,10 @@ export default function ScheduleThreeDisplay({schedule}: {schedule: ScheduleThre
                         {
                             schedule.electionProcedures.filter((proc) => proc.sectionThreePart === part.partID).map((proc) => (
                                 <div className="my-12">
-                                    <h3>{proc.sectionID}) {proc.sectionTitle}</h3>
+                                    <h2 className="py-4" id={`section-${proc.sectionID}-desc`}>
+                                        <span>{`${proc.sectionID})`} </span>
+                                        <span>{`${proc.sectionTitle}`}</span>
+                                    </h2>
                                     {
                                     proc.sectionText ? proc.sectionText : 
                                         schedule.subsections
