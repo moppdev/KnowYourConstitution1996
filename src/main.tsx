@@ -15,6 +15,8 @@ import ChapterContents from "./pages/ChapterContents.tsx";
 import AutoScrollToTop from "./components/AutoScrollToTop.tsx";
 import DocsIndex from "./pages/APIDocs/DocsIndex.tsx";
 import DocsAmendments from "./pages/APIDocs/DocsAmendments.tsx";
+import DocsAnnexures from "./pages/APIDocs/DocsAnnexures.tsx";
+import DocsSchedules from "./pages/APIDocs/DocsSchedules.tsx";
 
 createRoot(document.getElementById("root")!).render(
   // Using React Router to use routing for the website
@@ -39,6 +41,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path='api-docs' element={<DocsLanding />}>
           <Route index element={<DocsIndex />} />
           <Route path="amendments" element={<DocsAmendments />} />
+          <Route path="schedules" element={<DocsSchedules />} />
+          <Route path="annexures" element={<DocsAnnexures />} />
         </Route>
 
       </Routes>

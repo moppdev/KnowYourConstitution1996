@@ -11,7 +11,7 @@ export default function NavFAB({onClick}: {onClick: () => void})
     const fabClassString: string = fabClasses.join(" ");
 
     return (
-        <div className={fabClassString} aria-label="fab-api-nav" onClick={() => onClick()} role="button">
+        <div className={fabClassString} aria-label="fab-api-nav" onPointerDown={() => onClick()} role="button">
             <FontAwesomeIcon icon={faFile} className="text-(--background-color) text-lg"/>
         </div>
     )

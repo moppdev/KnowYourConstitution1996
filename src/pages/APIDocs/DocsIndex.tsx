@@ -30,7 +30,7 @@ export default function DocsIndex()
             </p>
 
             <div className={paragraphClassString}>
-                This documentation's navigation (should be either on the left of the page or as a modal after you click the bright green button on screen) links are sorted by the controllers used in the API:
+                This documentation's navigation (should be either on the left of the page or as a modal after you click the bright green button on screen) links are sorted by the main contents in the API:
                 <ul className="list-disc pl-8 pt-3">
                     <li>
                         <strong>Main</strong>
