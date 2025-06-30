@@ -55,16 +55,16 @@ export default function MobileDocsNav({handleNavMenu, isVisible}: {handleNavMenu
                 </div>
 
                 <ul className="text-xl">
-                        <NavLink to="/api-docs" onPointerDown={handleNavMenu} className={({isActive}) => isActive ?  activeClassString  + "inline-block w-full" : ""}>
+                        <NavLink to="/api-docs" end={true} onPointerDown={handleNavMenu} className={({isActive}) => isActive ?  activeClassString  + "inline-block w-full" : ""}>
                                 <li className={listItemString}>
                                     Home
 
                                     <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
                                 </li>
                         </NavLink>
-                        <NavLink to="/memes" onPointerDown={handleNavMenu} className={({isActive}) => isActive ? activeClassString + "inline-block w-full" : ""}>
+                        <NavLink to="/api-docs/main" onPointerDown={handleNavMenu} className={({isActive}) => isActive ? activeClassString + "inline-block w-full" : ""}>
                             <li className={listItemString}>
-                                Main (Chapters 1 - 14)
+                                Main (Ch 1 - 14)
                                 
                                 <FontAwesomeIcon icon={faArrowRight} className={iconListClassString} />
                             </li>

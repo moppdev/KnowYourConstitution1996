@@ -23,7 +23,11 @@ export default function DesktopDocsNav()
                         Home
                     </NavLink>
                 </li>
-                <li className={navItemClassString}>Main (Chapters 1 - 14)</li>
+                <li className={navItemClassString}>
+                    <NavLink to={`/api-docs/main`} className={`block w-full`}>
+                        Main (Chapters 1 - 14)
+                    </NavLink>
+                </li>
                 <li className={navItemClassString}>
                     <NavLink to={`/api-docs/schedules`} className={`block w-full`}>
                         Schedules
