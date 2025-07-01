@@ -1,7 +1,7 @@
 // this file handles everything related to the Main section (Chapter 1 - 14) of the Constitution
 
 import axios from "axios";
-import type { Chapter, FullChapter, NonDerogableRight, Preamble, SectionsPerChapter } from "../types/Main";
+import type { Chapter, FullChapter, NonDerogableRight, Preamble, Section, SectionsPerChapter } from "../types/Main";
 
 // Declare a new base Axios instance
 const apiBase = axios.create({
@@ -62,6 +62,18 @@ export async function getNonDerogableRights(): Promise<NonDerogableRight[] | nul
 {
   try {
     const response = await apiBase.get(`/ndr`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching chapters:", error);
+    return null;
+  }
+}
+
+// Gets all sections from Constitution
+export async function getAllSections(): Promise<Section[] | null>
+{
+  try {
+    const response = await apiBase.get(`/sections`);
     return response.data;
   } catch (error) {
     console.error("Error fetching chapters:", error);

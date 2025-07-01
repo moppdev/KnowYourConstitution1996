@@ -1,10 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getSearchAPIData } from "../api/SearchAPI";
+import type { UnitedObject } from "../types/Search";
+import Loading from "./Loading";
 
 // component that implements searching through the constitution contents on Home
 export default function Search()
 {
-    // state variable for results found: TODO
-    let [results, setResults] = useState(false);
+    // state variable for results found
+    const [results, setResults] = useState(null);
+    const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [searchData, setSearchData] = useState<UnitedObject | null>(null);
+
+    useEffect(() => {
+        async function getData() {
+            const data : UnitedObject | null = await getSearchAPIData();
+            setSearchData(data);
+        }
+
+        getData();
+    })
+
+    // function that searches for results among sections, chapters, annexures, schedules to return a list of links to various pages
+    async function searchResults(event: React.ChangeEvent<HTMLInputElement>)
+    {
+        // make the results div visible
+        setVisible(true);
+
+        // get the value from the event target
+        const input = event?.target ? event.target.value : "";
+
+        if (input === "")
+        {
+            setVisible(false);
+        }
+
+        // find the dropdown and get its textContent
+        const dropper = document.getElementsByName("dropper")[0] as HTMLSelectElement | null;
+        let selected: string | null = "";
+
+        if (dropper)
+        {
+            selected = dropper.options[dropper.selectedIndex].value;
+
+            // check the value from the dropdown to drill-down results
+            switch (selected)
+            {
+                case "All":
+                    console.log(results);
+                break;
+                case "Annexure":
+                    console.log(4);
+                break;
+                case "Chapter":
+                    console.log(6);
+                break;
+                case "Schedule":
+                    console.log(8);
+                break;
+                case "Section":
+                    console.log(28);
+                break;
+            }
+        }
+    }
+    /// END OF SEARCHER FUNCTION ///
+
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
@@ -20,7 +81,7 @@ export default function Search()
     const barAndDropperClassString: string = barAndDropperClasses.join(" ");
 
     // classes for the search-options dropdown
-    const dropdownClasses: string[] = ["h-full", "p-3", "w-[35%]", "bg-(--header-footer-nav-text)", "border-(--header-footer-nav)", "border-r-3", "rounded-tl-md", "rounded-bl-md"];
+    const dropdownClasses: string[] = ["h-full", "p-3", "sm:w-[35%]", "bg-(--header-footer-nav-text)", "border-(--header-footer-nav)", "border-r-3", "rounded-tl-md", "rounded-bl-md"];
     const dropdownClassString: string = dropdownClasses.join(" ");
 
     // classes for the search bar itself
@@ -32,7 +93,7 @@ export default function Search()
     const labelClassString: string = labelClasses.join(" ");
 
     // classes for the results of the search
-    const resultsClasses: string[] = [""];
+    const resultsClasses: string[] = ["border-t-1", "z-10"];
     const resultsClassString: string = resultsClasses.join(" ");
 
     // return the search component
@@ -52,13 +113,17 @@ export default function Search()
                         <option>Schedule</option>
                         <option>Annexure</option>
                     </select>
-                    <input id="search-bar" className={barClassString} placeholder="Search..."/>
+                    <input id="search-bar" onChange={(event) => {searchResults(event)}} onBlur={() => {setVisible(false)}} className={barClassString} placeholder="Search..."/>
                 </div>
-                <div id="results" className={resultsClassString}>
-                    <ul className="list-none">
-                        <li></li>
-                    </ul>
-                </div>
+                {
+                    visible &&                
+                    <div id="results" className={resultsClassString}>
+                        {loading ? <Loading /> : 
+                        <ul className="list-none">
+                            {!results && <li className="p-4">No results found</li>}
+                        </ul>}
+                    </div>
+                }
             </div>
         </section>
     )

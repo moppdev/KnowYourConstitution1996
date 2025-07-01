@@ -43,7 +43,7 @@ export default function ChapterContents()
     const nextClassString: string = nextClasses.join(" ");
 
     // Use the useState hook to create state variables for loading and the schedule's contents
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [chapter, setChapter] = useState<FullChapter | null>(null);
     const [nonDerogableRights, setNonDerogableRights] = useState<NonDerogableRight[] | null>(null);
 
@@ -63,6 +63,8 @@ export default function ChapterContents()
 
         // async function that gets the chapter by number
         async function fetchChapter() {
+            setLoading(true);
+
             if (id)
             {
                 const data: FullChapter | null = await getChapterContents(parseInt(id));
@@ -194,26 +196,26 @@ export default function ChapterContents()
                                 ))
                             }
                         </section>
+
+                        <div id="next-options" className={nextClassString}>
+                            {
+                                (parseInt(id!) === 1) ? 
+                                <ContentNavigatorCard contentType="preamble" id="-1" direction="l"/> : 
+                                <ContentNavigatorCard contentType="chapter" id={(parseInt(id!) - 1).toString()} direction="l"/>
+                            }
+
+                            {
+                                (parseInt(id!) === 14) ? 
+                                <ContentNavigatorCard contentType="preamble" id="-1" direction="r"/> : 
+                                <ContentNavigatorCard contentType="chapter" id={(parseInt(id!) + 1).toString()} direction="r"/>
+                            }
+                        </div>
                     </article>
                 )}
 
                 {!loading && !chapter && (
                     <p>Something went wrong with retrieving the contents of Chapter {id!}</p>
                 )}
-
-                <div id="next-options" className={nextClassString}>
-                    {
-                        (parseInt(id!) === 1) ? 
-                        <ContentNavigatorCard contentType="preamble" id="-1" direction="l"/> : 
-                        <ContentNavigatorCard contentType="chapter" id={(parseInt(id!) - 1).toString()} direction="l"/>
-                    }
-
-                    {
-                        (parseInt(id!) === 14) ? 
-                        <ContentNavigatorCard contentType="preamble" id="-1" direction="r"/> : 
-                        <ContentNavigatorCard contentType="chapter" id={(parseInt(id!) + 1).toString()} direction="r"/>
-                    }
-                </div>
             </Container>
 
             <Footer />
