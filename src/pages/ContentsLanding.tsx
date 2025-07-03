@@ -88,77 +88,90 @@ export default function ContentsLanding()
 
 
                     {
-                        loading ? <Loading /> : 
+                        loading && <Loading />
+                    }
+
+                    {
+                        !loading && 
                         <>
-                            <section id="chapters" className={sectionClassString}>
-                                <h2 className="text-2xl">Chapters</h2>
-                                {
-                                    /* Display cards that will take the user to each chapter of the Constitution*/
-                                    chapters && (chapters.map((chapter) => 
-                                            (
-                                                (chapter.chapterID === 0 && chapter.chapterTitle === "Preamble" ?
-                                                    <ContentLandingCard key={chapter.chapterID} type="chapter" name={chapter.chapterTitle} link="/preamble"/>
-                                                :                                            
-                                                    <ContentLandingCard type="chapter" key={chapter.chapterID} name={`Chapter ${chapter.chapterID}: ${chapter.chapterTitle}`} link={`/chapter/${chapter.chapterID}`}/>)
+                            {
+                                chapters && 
+                                <section id="chapters" className={sectionClassString}>
+                                        <h2 className="text-2xl">Chapters</h2>
+                                        {
+                                            /* Display cards that will take the user to each chapter of the Constitution*/
+                                            chapters && (chapters.map((chapter) => 
+                                                    (
+                                                        (chapter.chapterID === 0 && chapter.chapterTitle === "Preamble" ?
+                                                            <ContentLandingCard key={chapter.chapterID} type="chapter" name={chapter.chapterTitle} link="/preamble"/>
+                                                        :                                            
+                                                            <ContentLandingCard type="chapter" key={chapter.chapterID} name={`Chapter ${chapter.chapterID}: ${chapter.chapterTitle}`} link={`/chapter/${chapter.chapterID}`}/>)
+                                                    )
+                                                )
                                             )
+                                        }
+
+                                        {   
+                                            // If chapters is null or empty, display a message
+                                            ((!loading) && (!chapters || chapters.length === 0)) && (
+                                                <p>Something went wrong with retrieving the list of chapters</p>
+                                            )
+                                        }
+                                </section>
+                            }
+
+                            {
+                                schedules && 
+                                <section id="schedules" className={sectionClassString}>
+                                    <h2 className="text-2xl">Schedules</h2>
+                                    {
+                                        /* Display cards that will take the user to each schedule of the Constitution*/
+                                        schedules && (schedules.map((schedule) =>                      
+                                            <ContentLandingCard type="schedule" key={schedule.scheduleID} name={`${schedule.scheduleTitle}`} 
+                                            link={`/schedule/${schedule.scheduleID.toLowerCase()}`}/>)
                                         )
-                                    )
+                                    }
+
+                                    {   
+                                        // If schedules is null or empty, display a message
+                                        (!schedules || schedules.length === 0) && (
+                                            <p>Something went wrong with retrieving the list of schedules</p>
+                                        )
+                                    }
+                                </section>
+                            }
+
+                            {
+                                annexures && 
+                                <section id="annexures" className={sectionClassString}>
+                                    <h2 className="text-2xl">Annexures</h2>
+                                    {
+                                        /* Display cards that will take the user to each annexure of the Constitution*/
+                                        annexures && (annexures.map((annexure) =>                      
+                                            <ContentLandingCard type="annexure" key={annexure.annexureID} name={`Annexure ${annexure.annexureID}: ${annexure.annexureTitle}`} 
+                                            link={`/annexure/${annexure.annexureID.toLowerCase()}`}/>)
+                                        )
+                                    }
+
+                                    {   
+                                        // If annexures is null or empty, display a message
+                                        (!annexures || annexures.length === 0) && (
+                                            <p>Something went wrong with retrieving the list of annexures</p>
+                                        )
+                                    }
+                                </section>
+                            }
+
+                            <section id="amendments" className={sectionClassString}>
+                                <h2 className="text-2xl">Amendments</h2>
+                                {
+                                    /* Display cards that will take the user to amendments of the Constitution*/                 
+                                        <ContentLandingCard type="amendment" key="amendments"
+                                        name={`amendments`} 
+                                        link={`/amendments`}/>
                                 }
-
-                                {   
-                                    // If chapters is null or empty, display a message
-                                    (!chapters || chapters.length === 0) && (
-                                        <p>Something went wrong with retrieving the list of chapters</p>
-                                    )
-                                }
-                        </section>
-
-                        <section id="schedules" className={sectionClassString}>
-                            <h2 className="text-2xl">Schedules</h2>
-                            {
-                                /* Display cards that will take the user to each schedule of the Constitution*/
-                                schedules && (schedules.map((schedule) =>                      
-                                    <ContentLandingCard type="schedule" key={schedule.scheduleID} name={`${schedule.scheduleTitle}`} 
-                                    link={`/schedule/${schedule.scheduleID.toLowerCase()}`}/>)
-                                )
-                            }
-
-                            {   
-                                // If schedules is null or empty, display a message
-                                (!schedules || schedules.length === 0) && (
-                                    <p>Something went wrong with retrieving the list of schedules</p>
-                                )
-                            }
-                        </section>
-
-                        <section id="annexures" className={sectionClassString}>
-                            <h2 className="text-2xl">Annexures</h2>
-                            {
-                                /* Display cards that will take the user to each annexure of the Constitution*/
-                                annexures && (annexures.map((annexure) =>                      
-                                    <ContentLandingCard type="annexure" key={annexure.annexureID} name={`Annexure ${annexure.annexureID}: ${annexure.annexureTitle}`} 
-                                    link={`/annexure/${annexure.annexureID.toLowerCase()}`}/>)
-                                )
-                            }
-
-                            {   
-                                // If annexures is null or empty, display a message
-                                (!annexures || annexures.length === 0) && (
-                                    <p>Something went wrong with retrieving the list of annexures</p>
-                                )
-                            }
-                        </section>
-
-                        <section id="amendments" className={sectionClassString}>
-                            <h2 className="text-2xl">Amendments</h2>
-                            {
-                                /* Display cards that will take the user to amendments of the Constitution*/                 
-                                    <ContentLandingCard type="amendment" key="amendments"
-                                    name={`amendments`} 
-                                    link={`/amendments`}/>
-                            }
-                        </section>
-                    </>
+                            </section>
+                        </>
                     }
 
                 </Container>

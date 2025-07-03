@@ -93,10 +93,6 @@ export default function ChapterContents()
 
                 {!loading && chapter && (
                     <article>
-                        {/* <section id="index">
-
-                    </section> TODO: Index */} 
-
                         <section id={`chapter-${id}-content`} className={chapterContainerClassString}>
                             <PageTitle title={`Chapter ${id} - ${chapter?.chapterTitle}`} />
 

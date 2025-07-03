@@ -2,12 +2,12 @@ import type { ImgInfo } from "./ImgInfo";
 import QueueImage from "../assets/voting.jpg";
 import SigningImage from "../assets/mandela-signing-document.jpg"
 import ConstitutionImage from "../assets/constitution-feature.jpg"
-import AcceptImage from "../assets/ca-accept.png"
-import CODESAImage from "../assets/codesa.png"
+import AcceptImage from "../assets/ca-accept.jpg"
+import CODESAImage from "../assets/codesa.jpg"
 import SpeakImage from "../assets/ca.jpg";
-import DraftImage from "../assets/draft.png"
-import PublicDraftImage from "../assets/public.png"
-import ProtestImage from "../assets/protest.png"
+import DraftImage from "../assets/draft.jpg"
+import PublicDraftImage from "../assets/public.jpg"
+import ProtestImage from "../assets/protest.jpg"
 
 // Type for every card on Short History's contents
 export interface HistoricalEvent

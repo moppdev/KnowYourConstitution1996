@@ -29,7 +29,9 @@ export default function FAQ()
                 Juta's 14th edition Pocket Statutes version of the Constitution was used for this purpose.`}/>
 
             <FAQCard title="How do I use the search bar?" 
-                content={`First, select an option from the dropdown, the options are All, Chapters, Sections, Schedules, or Annexures. Type in any keyword, chapter name, or section number to begin searching.`}/>
+                content={`First, select an option from the dropdown: All, Chapters, Sections, Schedules, or Annexures.
+Then, type in any keyword, chapter title, or section number to begin searching.
+Results will update automatically as you type or change your search term.`}/>
 
             <FAQCard title="I don't want to use the search bar, where can I find the contents?" 
                 content={`Navigate to the "Contents" link in the navigation menu. You'll find sections labeled Chapters, Schedules, Annexures and Amendments.`}/>

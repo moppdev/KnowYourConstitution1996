@@ -10,3 +10,10 @@ export interface UnitedObject
     chapters: Chapter[],
     annexures: Annexure[]
 }
+
+// a result for the All selection in Search.tsx
+export interface UnitedResult
+{
+    navLink: string,
+    title: string
+}

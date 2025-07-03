@@ -14,7 +14,7 @@ export default function Footer()
     const classString = footerClasses.join(" ");
 
     // classes for the GitHub icon
-    const githubIconClasses: string[] = ["text-4xl", "hover:bg-sky-700", "rounded-full", "pb-2"];
+    const githubIconClasses: string[] = ["text-4xl", "hover:bg-sky-700", "rounded-full"];
     const githubClassString = githubIconClasses.join(" ");
 
     return (
