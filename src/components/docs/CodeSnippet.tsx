@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { codeToHtml } from "shiki";
 
+// this compoment display code snippets using Shiki library
 export default function CodeSnippet({lines, lang}: {lines: string, lang: string})
 {
     const [code, setCode] = useState("");
@@ -13,6 +14,7 @@ export default function CodeSnippet({lines, lang}: {lines: string, lang: string}
     useEffect(() => {
         async function shikiTransform()
         {
+            // use Shiki's codeToHtml function to convert the code to a code snippet
             const html = await codeToHtml(lines, {
                 lang: lang,
                 theme: 'kanagawa-wave',

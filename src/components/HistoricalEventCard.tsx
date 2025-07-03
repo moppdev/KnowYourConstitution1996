@@ -15,7 +15,7 @@ export default function HistoricalEventCard({historicalEvent}: {historicalEvent:
     return (
         <div className={cardClassString}>
             <div className="md:max-h-300">
-                <img className="" src={historicalEvent.imgInfo.src} alt={historicalEvent.imgInfo.alt} />
+                <img className="" src={historicalEvent.imgInfo.src} alt={historicalEvent.imgInfo.alt} loading="lazy" />
                 <p className={attributionClassString}><FontAwesomeIcon icon={faCopyright} /> {historicalEvent.imgInfo.attribution}</p>
             </div>
             <div className="mx-4 py-4">

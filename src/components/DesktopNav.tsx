@@ -31,27 +31,44 @@ export default function DesktopNav()
         <nav id="desktop-nav" className={desktopNavString}>
             <ul className={navClassString}>
                 <li className={listItemString}>
-                    <NavLink to="/" className={({ isActive }) => isActive ? activeClassString : ""}>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            "hover:text-(--background-color)/80" + (isActive ? " " + activeClassString : "")
+                        }
+                    >
                         Home
                     </NavLink>
                 </li>
                 <li className={listItemString}>
-                    <NavLink to="/history" className={({ isActive }) => isActive ? activeClassString : ""}>
+                    <NavLink to="/history"
+                        className={({ isActive }) =>
+                            "hover:text-(--background-color)/80" + (isActive ? " " + activeClassString : "")
+                        }>
                         History
                     </NavLink>
                 </li>
                 <li className={listItemString}>
-                    <NavLink to="/contents" className={({ isActive }) => isActive ? activeClassString : ""}>
+                    <NavLink to="/contents"                         
+                        className={({ isActive }) =>
+                            "hover:text-(--background-color)/80" + (isActive ? " " + activeClassString : "")
+                        }>
                         Contents
                     </NavLink>
                 </li>
                 <li className={listItemString}>
-                    <NavLink to="/contribute" className={({ isActive }) => isActive ? activeClassString : ""}>
+                    <NavLink to="/contribute" 
+                        className={({ isActive }) =>
+                            "hover:text-(--background-color)/80" + (isActive ? " " + activeClassString : "")
+                        }>
                         Contribute
                     </NavLink>
                 </li>            
                 <li className={lastLinkString}>
-                    <NavLink to="/api-docs" className={({ isActive }) => isActive ? activeClassString : ""}>
+                    <NavLink to="/api-docs" 
+                        className={({ isActive }) =>
+                            "hover:text-(--background-color)/80" + (isActive ? " " + activeClassString : "")
+                        }>
                         API
                     </NavLink>
                 </li>

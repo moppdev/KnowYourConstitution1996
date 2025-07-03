@@ -1,6 +1,6 @@
 import PageTitle from "../../components/PageTitle";
-import CodeSnippet from "./CodeSnippet";
-import DocsAPICallTabs from "./DocsAPICallTabs";
+import CodeSnippet from "../../components/docs/CodeSnippet";
+import DocsAPICallTabs from "../../components/docs/DocsAPICallTabs";
 
 // This page displays all the routes used in the Main controller to retrieve information about all contents in Chapters 1–14
 export default function DocsMain() {

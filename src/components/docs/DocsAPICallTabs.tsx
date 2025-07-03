@@ -5,7 +5,7 @@ import CodeSnippet from "./CodeSnippet";
 export default function DocsAPICallTabs({link}: {link: string})
 {
     // languages to be included: JS/TS, Python, C#, Go, Ruby, PHP, cURL
-    // Shiki library is used here
+    // Shiki library is used in CodeSnippet
     // "text" is used for cURL and fallback
     const [lang, setLang] = useState<"javascript" | "csharp" | "python" | "go" | "ruby" | "php" | "text">("text");
 

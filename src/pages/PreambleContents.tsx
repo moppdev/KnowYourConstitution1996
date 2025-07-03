@@ -27,6 +27,10 @@ export default function PreambleContents()
     const [preamble, setPreamble] = useState<Preamble | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
+    // classes for the bottom navigation
+    const nextClasses: string[] = ["flex", "sm:flex-row", "flex-col", "sm:items-center"];
+    const nextClassString: string = nextClasses.join(" ");
+
     // useEffect hook to fetch the preamble from the API
     useEffect(() => {
         //async function that gets the preamble
@@ -70,7 +74,9 @@ export default function PreambleContents()
                         <p>Something went wrong with retrieving the preamble.</p>
                     )}
 
-                    <ContentNavigatorCard id="1" contentType="chapter" direction="r"/>
+                    <div className={nextClassString} id="next-options">
+                        <ContentNavigatorCard id="1" contentType="chapter" direction="r"/>
+                    </div>
                 </Container>
             <Footer />
         </>

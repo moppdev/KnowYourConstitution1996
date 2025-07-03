@@ -1,11 +1,11 @@
 import { Outlet } from "react-router";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import DocsContainer from "./DocsContainer";
-import DesktopDocsNav from "./DesktopDocsNav";
-import NavFAB from "./NavFAB";
+import DocsContainer from "../../components/docs/DocsContainer";
+import DesktopDocsNav from "../../components/docs/DesktopDocsNav";
+import NavFAB from "../../components/docs/NavFAB";
 import { useState } from "react";
-import MobileDocsNav from "./MobileDocsNav";
+import MobileDocsNav from "../../components/docs/MobileDocsNav";
 
 export default function DocsLanding()
 {

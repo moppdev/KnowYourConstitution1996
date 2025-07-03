@@ -11,14 +11,14 @@ export default function DesktopDocsNav()
     const navClassString: string = navClasses.join(" ");
 
     // classes for each list item in nav
-    const navItemClasses: string[] = ["border-b-1 border-(--text)", "py-4"];
+    const navItemClasses: string[] = ["border-b-1 border-(--text)", "py-4", "hover:bg-yellow-100/20"];
     const navItemClassString: string = navItemClasses.join(" ");
     
     return (
         <nav className={navClassString}>
             <h2 className="py-4 text-center">ZAConstitution1996 API Docs</h2>
             <ul className="list-none p-4">
-                <li className={`border-y-1 border-(--text) py-4`}>
+                <li className={`border-y-1 border-(--text) py-4 hover:bg-yellow-100/20`}>
                     <NavLink to={`/api-docs`} className={`block w-full`}>
                         Home
                     </NavLink>

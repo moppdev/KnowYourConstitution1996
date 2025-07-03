@@ -1,6 +1,6 @@
 import PageTitle from "../../components/PageTitle";
-import CodeSnippet from "./CodeSnippet";
-import DocsAPICallTabs from "./DocsAPICallTabs";
+import CodeSnippet from "../../components/docs/CodeSnippet";
+import DocsAPICallTabs from "../../components/docs/DocsAPICallTabs";
 
 // This page displays all the routes used in the Annexures controller to retrieve information about each Annexure
 export default function DocsAnnexures() {
