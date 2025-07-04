@@ -15,14 +15,12 @@ import HeroAttribution from "../components/HeroAttribution";
 import ContentLandingCard from "../components/ContentLandingCard";
 import type { ImgInfo } from "../types/ImgInfo";
 import Loading from "../components/Loading";
+import SEO from "../components/SEO";
 
 // This page acts as the index page for the contents of the Constitution
 // It links to all the chapters, annexures, schedules and amendments of the Constitution
 export default function ContentsLanding()
 {
-    // Change the title in the browser tab
-    document.title = "KYC1996 | Contents";
-
     // Info for the Hero Image
     const imgInfo: ImgInfo = {
         "src": ConstitutionImage,
@@ -76,6 +74,11 @@ export default function ContentsLanding()
 
     return (
         <>
+            <SEO 
+                title="KYC1996 | Contents"
+                description="Explore the contents of the Constitution of South Africa, including chapters, schedules, annexures, and amendments. Access the full text and learn about the foundational principles of South Africa's democracy."
+                keywords="constitution contents, south african constitution, 1996 constitution, chapters, schedules, annexures, amendments, full text constitution, democratic principles, kyc1996"
+            />
             <Header />
                 <Container>
 

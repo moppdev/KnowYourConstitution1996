@@ -7,13 +7,11 @@ import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContributingCard from "../components/ContributingCard";
 import type { ImgInfo } from "../types/ImgInfo";
+import SEO from "../components/SEO";
 
 // The Contribute page shows users how they could contribute to the website or API if they want to
 export default function Contribute()
 {
-    // Change the title in the browser tab
-    document.title = "KYC1996 | Contributions";
-
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // classes for the container containing the ContributionCards
     const cardHolderClasses: string[] = ["flex", "gap-2", "min-[500px]:gap-5", "justify-center", "lg:justify-start", "lg:ml-14", "flex-wrap", "py-10"];
@@ -45,6 +43,11 @@ export default function Contribute()
     // return the page
     return (
         <>
+            <SEO
+                description="Contribute to the KYC1996 project, which provides public access to South Africa's 1996 Constitution. Learn how to contribute to the website or ZAConstitution1996 API."
+                keywords="contribute, kyc1996, open source, south african constitution, 1996 constitution, legal api, zaconstitution1996, civic tech, public access, constitution project"
+                title="KYC1996 | Contributions"
+            />
             <Header />
                 <Container>
     
@@ -67,6 +70,7 @@ export default function Contribute()
                             Here are the tech stacks used in the website and API:
                         </p>
                         <div id="tech-stacks" className={techStackClassString}>
+                            
                             <div id="ts-website" className={websiteStackClassString}>
                                 <p className="border-b-2">Website</p>
                                 <ul className={listClassesString}>
@@ -78,6 +82,7 @@ export default function Contribute()
                                     <li>Axios</li>
                                 </ul>
                             </div>
+
                             <div id="ts-api" className={apiStackClassString}>
                                 <p className="border-b-2 w-2/3">API</p>
                                 <ul className={listClassesString}> 
@@ -89,6 +94,7 @@ export default function Contribute()
                                     <li>Swagger</li>
                                 </ul>
                             </div>
+
                         </div>
                         <p>
                             To get started, click/touch either of the cards below, which will take you to each GitHub repository, to contribute to the website or API.

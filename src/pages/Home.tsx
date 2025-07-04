@@ -9,11 +9,10 @@ import DidYouKnow from '../components/DidYouKnow';
 import Search from '../components/Search';
 import FAQ from '../components/FAQ';
 import type { ImgInfo } from '../types/ImgInfo';
+import SEO from '../components/SEO';
 
 // This is the home page of the website's TSX
 export default function Home() {
-  // Change the title in the browser tab
-  document.title = "KYC1996 | Home";
 
   // Info for the Hero Image
   const imgInfo: ImgInfo = {
@@ -33,6 +32,12 @@ export default function Home() {
   // return the page
   return (
     <>
+      <SEO 
+        title="KYC1996 | Explore South Africa's Rights & Freedoms"
+        description="Mine. Yours. Ours. Our rights and freedoms enshrined. Explore South Africa's 1996 Constitution in an accessible, searchable format."
+        keywords="south african constitution, constitution of south africa, constitution of republic of south africa, 1996 constitution south africa, bill of rights south africa, south africa constitution pdf, know your constitution, section 25 constitution, open source, kyc1996"
+      />
+
       <Header />
 
           <Container>

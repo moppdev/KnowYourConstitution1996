@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO";
 import PageTitle from "../../components/PageTitle";
 import CodeSnippet from "../../components/docs/CodeSnippet";
 import DocsAPICallTabs from "../../components/docs/DocsAPICallTabs";
@@ -20,8 +21,17 @@ export default function DocsMain() {
 
     const apiRoute = '/api/v1/main';
 
+    // change title of page
+    document.title = "KYC1996 | API Docs - Main (Chapters 1 - 14)";
+
     return (
         <div id="apidocs-main" className="pb-30 sm:pb-65 md:pb-95">
+            <SEO
+                description="API documentation for the Main controller in ZAConstitution1996, which provides access to information about the contents of Chapters 1 - 14 of the South African Constitution, including chapters, sections, and the Preamble."
+                keywords="api documentation, main api, chapters api, sections api, preamble api, zaconstitution1996, south african constitution api, legal api, 1996 constitution, kyc1996"
+                title="KYC1996 | API Docs - Main (Chapters 1 - 14)"
+            />
+                        
             <PageTitle title="Main" />
 
             <p className={paragraphClassString}>

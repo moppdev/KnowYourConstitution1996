@@ -9,14 +9,12 @@ import { useEffect, useState } from "react";
 import type { FullChapter, NonDerogableRight } from "../types/Main";
 import { getChapterContents, getNonDerogableRights } from "../api/MainAPI";
 import ContentNavigatorCard from "../components/ContentNavigatorCard";
+import SEO from "../components/SEO";
 
 export default function ChapterContents()
 {
      // get the chapter id from the URL parameters
     const {id} = useParams();
-
-    // Change the title in the browser tab
-    document.title = `KYC1996 | Chapter ${id!}`;
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // classes for the container
@@ -82,6 +80,11 @@ export default function ChapterContents()
 
     return (
         <>
+            <SEO 
+                title={`KYC1996 | Chapter ${id!}`}
+                description={`Explore the contents of Chapter ${id!} of the Constitution of South Africa, including its sections, subsections, and clauses. Access the full text and learn about the contents in this chapter.`}
+                keywords={`chapter ${id}, constitution chapter ${id}, south african constitution, 1996 constitution, legal chapter ${id}, constitutional law, sections and clauses, chapter ${id} full text, democracy south africa, kyc1996`}
+            />
             <Header />
 
             <Container>
@@ -193,6 +196,7 @@ export default function ChapterContents()
                             }
                         </section>
 
+                        {/* Navigation cards */}
                         <div id="next-options" className={nextClassString}>
                             {
                                 (parseInt(id!) === 1) ? 

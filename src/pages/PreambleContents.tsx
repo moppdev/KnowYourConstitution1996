@@ -8,12 +8,10 @@ import type { Preamble } from "../types/Main";
 import { getPreamble } from "../api/MainAPI";
 import BackToContents from "../components/BackToContents";
 import ContentNavigatorCard from "../components/ContentNavigatorCard";
+import SEO from "../components/SEO";
 
 export default function PreambleContents()
 {
-    // Change the title in the browser tab
-    document.title = "KYC1996 | Preamble";
-
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // Classes for the preamble container
     const preambleClasses: string[] = ["text-left", "text-xl", "mx-10", "pl-4"];
@@ -34,7 +32,7 @@ export default function PreambleContents()
     // useEffect hook to fetch the preamble from the API
     useEffect(() => {
         //async function that gets the preamble
-        async function fetchAmendments()
+        async function fetchPreamble()
         {
             // get the preamble from the API
             // set loading to false when complete
@@ -44,11 +42,16 @@ export default function PreambleContents()
             setLoading(false);
         }
 
-        fetchAmendments();
+        fetchPreamble();
     }, [])
 
     return (
         <>
+            <SEO
+                description="The Preamble to the Constitution of South Africa, 1996, which outlines the values and principles that underpin the Constitution."
+                keywords="preamble, constitution of south africa, 1996 constitution, constitutional values, south africa democracy, national unity, justice, human dignity, freedom, equality"
+                title="KYC1996 | Preamble"
+            />
             <Header />
                 <Container>
                     <BackToContents />

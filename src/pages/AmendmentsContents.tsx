@@ -9,6 +9,7 @@ import Loading from "../components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import BackToContents from "../components/BackToContents";
+import SEO from "../components/SEO";
 
 export default function AmendmentsContents()
 {
@@ -49,6 +50,11 @@ export default function AmendmentsContents()
 
     return (
         <>
+            <SEO
+                description="A list of all amendments to the Constitution of South Africa, 1996, including their titles, dates of effect, and references."
+                keywords="constitutional amendments, south african constitution, 1996 constitution, amendment list, amendment dates, legal amendments, constitution changes, amendment acts, constitutional law south africa, kyc1996"
+                title="KYC1996 | Amendments"
+            />
             <Header />
                 <Container>
                     <BackToContents />

@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO";
 import PageTitle from "../../components/PageTitle";
 import CodeSnippet from "../../components/docs/CodeSnippet";
 import DocsAPICallTabs from "../../components/docs/DocsAPICallTabs";
@@ -22,6 +23,12 @@ export default function DocsAnnexures() {
 
     return (
         <div id="apidocs-annexures" className="pb-30 sm:pb-65 md:pb-95">
+            <SEO
+                description="API documentation for the Annexures controller in ZAConstitution1996, which provides access to information about the annexures of the South African Constitution."
+                keywords="api documentation, annexures api, south african constitution api, zaconstitution1996, 1996 constitution, legal api, open source api, civic tech, kyc1996"
+                title="KYC1996 | API Docs - Annexures"
+            />
+
             <PageTitle title="Annexures" />
 
             <p className={paragraphClassString}>

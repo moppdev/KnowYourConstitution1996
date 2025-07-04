@@ -4,9 +4,6 @@ import type { ScheduleSeven } from "../../types/Schedules";
 export default function ScheduleSevenDisplay({schedule}: {schedule: ScheduleSeven[]})
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
-    // classes for each section
-    const sectionContainer: string[] = ["mb-12"];
-    const sectionContainerClassString: string = sectionContainer.join(" ");
 
     // Classes for the table
     const tableClasses: string[] = ["table-auto", "border-collapse", "border-3", "border-(--text)", "max-[340px]:mx-0", "max-[639px]:mx-5", "sm:mx-10", "my-8", "lg:mb-6"];

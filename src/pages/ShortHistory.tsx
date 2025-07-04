@@ -8,13 +8,11 @@ import HeroAttribution from "../components/HeroAttribution";
 import type { ImgInfo } from "../types/ImgInfo";
 import { constitutionHistory } from "../types/History";
 import HistoricalEventCard from "../components/HistoricalEventCard";
+import SEO from "../components/SEO";
 
 // The Short History page's TSX, displays a timeline of the creation of the Constitution
 export default function ShortHistory()
 {
-    // Change the title in the browser tab
-    document.title = "KYC1996 | Short History of the Constitution";
-
     // Info for the Hero Image
     const imgInfo: ImgInfo = {
         "src": QueueImage,
@@ -24,7 +22,11 @@ export default function ShortHistory()
 
     return (
         <>
-
+            <SEO
+                description="A short history of the Constitution of South Africa, 1996, including key events leading to its adoption"
+                keywords="constitution of south africa, 1996 constitution, south african democracy, apartheid, constitutional negotiations, constitutional assembly, interim constitution, codesa, mandela, democratic transition"
+                title="KYC1996 | Short History of the Constitution"
+            />
             <Header />
                 <Container>
                     <HeroImage imgInfo={imgInfo} overlaidText={`“The Constitution as a whole, and particularly at its end, defines itself as a historic bridge between the 

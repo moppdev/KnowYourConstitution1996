@@ -9,14 +9,12 @@ import type { AnnexureSubsections, FullAnnexure } from "../types/Annexures";
 import { getAnnexureByLetter } from "../api/AnnexureAPI";
 import BackToContents from "../components/BackToContents";
 import ContentNavigatorCard from "../components/ContentNavigatorCard";
+import SEO from "../components/SEO";
 
 export default function AnnexureContents() 
 {
     // get the annexure id from the URL parameters
     const {id} =  useParams();
-
-    // Change the title in the browser tab
-    document.title = `KYC1996 | Annexure ${id!.toUpperCase()}`;
 
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // classes for the annexure
@@ -44,11 +42,11 @@ export default function AnnexureContents()
                 const data: FullAnnexure | null = await getAnnexureByLetter(id.toUpperCase() as "A" | "B" | "C" | "D");
 
                 // loop through the annexure's subsections, and remove the leading "0" on some subsectionIDs
-                for (const item in data?.annexureSubsections)
-                {
-                    if (data?.annexureSubsections[item].subsectionID.startsWith("0"))
-                    {
-                        data.annexureSubsections[item].subsectionID = data?.annexureSubsections[item].subsectionID.substring(1);
+                if (data?.annexureSubsections) {
+                    for (const subsection of data.annexureSubsections) {
+                        if (subsection.subsectionID.startsWith("0")) {
+                            subsection.subsectionID = subsection.subsectionID.substring(1);
+                        }
                     }
                 }
 
@@ -62,6 +60,11 @@ export default function AnnexureContents()
 
     return (
         <>
+            <SEO
+                title={`KYC1996 | Annexure ${id!.toUpperCase()}`}
+                description="Explore the contents of Annexure A, B, C, or D of the Constitution of South Africa."
+                keywords={`annexure ${id}, constitution annexure ${id}, south african constitution, 1996 constitution, annexures, legal annexures, annexure text, annexure ${id} full text, constitutional documents, kyc1996`}
+            />
             <Header />
 
             <Container>
@@ -86,9 +89,7 @@ export default function AnnexureContents()
 
                                         { section.sectionText !== "" &&
                                             <ul className="list-none" id={`annexure-${annexure.annexureID.toLowerCase()}-subsections`}>
-                                                {section.sectionText && <li>{section.sectionText}</li>}
-                                                {
-                                                    !section.sectionText &&
+                                                {section.sectionText ? <li>{section.sectionText}</li> :
                                                     FilterAnnexureSubsections(annexure, section.sectionID)?.map((subsection) => (
                                                         <li key={`subsection${subsection.subsectionID}`}>
                                                             {`${subsection.subsectionID}) ${subsection.sectionText}`}

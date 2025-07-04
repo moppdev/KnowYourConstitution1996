@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import CodeSnippet from "./CodeSnippet";
 
 // this component will show how to call a certain route endpoint in the API in multiple languages
@@ -92,8 +92,8 @@ puts response.body`)
     }, [lang, link, fullLink])
 
     // on click event that changes the language of the snippet
-    const changeLang = (event) => {
-        setLang(event?.target.value)
+    const changeLang = (event: ChangeEvent<HTMLSelectElement>) => {
+        setLang(event.target.value as typeof lang)
     };
 
     return (

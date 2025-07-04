@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ScheduleFourFive, ScheduleOne, ScheduleOneA, ScheduleSeven, ScheduleSix, ScheduleThree, ScheduleTwo } from "../types/Schedules";
 import Loading from "../components/Loading";
 import Container from "../components/Container";
@@ -13,14 +13,12 @@ import ScheduleTwoDisplay from "../components/schedules/ScheduleTwo";
 import ScheduleSixDisplay from "../components/schedules/ScheduleSix";
 import ScheduleThreeDisplay from "../components/schedules/ScheduleThree";
 import ScheduleSevenDisplay from "../components/schedules/ScheduleSeven";
+import SEO from "../components/SEO";
 
 export default function ScheduleContents() 
 {
     // get the schedule id from the URL parameters
     const {id} =  useParams();
-
-    // Change the title in the browser tab
-    document.title = `KYC1996 | Schedule ${id!.toUpperCase()}`;
 
     // Use the useState hook to create state variables for loading and the schedule's contents
     const [loading, setLoading] = useState(true);
@@ -36,8 +34,8 @@ export default function ScheduleContents()
     const sectionContainer: string[] = ["mx-4", "md:mx-13", "py-5"];
     const sectionContainerClassString: string = sectionContainer.join(" ");
 
-            // object to route ids from number to word format for the API
-        const numsToWords = {
+        // object to route ids from number to word format for the API
+        const numsToWords = useMemo(() => ({
             "1": "one",
             "1a": "one/a",
             "2": "two",
@@ -46,7 +44,7 @@ export default function ScheduleContents()
             "5": "five",
             "6": "six",
             "7": "seven"
-        }
+        }), []);
 
     useEffect(() => {
         // async function that gets the schedule by number
@@ -60,10 +58,12 @@ export default function ScheduleContents()
 
                 setScheduleTitle(filtered![0].scheduleTitle);
 
-                const data: ScheduleOne[] | ScheduleTwo | ScheduleOneA[] | ScheduleThree | ScheduleFourFive[] | ScheduleSix | 
-                ScheduleSeven[] | null = await getScheduleByNumber(numsToWords[id]);
-                
-                setSchedule(data);
+                const wordId = numsToWords[id as keyof typeof numsToWords];
+                if (wordId) {
+                    const data: ScheduleOne[] | ScheduleTwo | ScheduleOneA[] | ScheduleThree | ScheduleFourFive[] | ScheduleSix | 
+                    ScheduleSeven[] | null = await getScheduleByNumber(wordId as Parameters<typeof getScheduleByNumber>[0]);
+                    setSchedule(data);
+                }
             }
             setLoading(false);
         }
@@ -75,6 +75,11 @@ export default function ScheduleContents()
 
     return (
         <>
+            <SEO 
+                title={`KYC1996 | Schedule ${id!.toUpperCase()}`}
+                description="Contents of the Schedules in the South African Constitution, 1996, including the text of each schedule and its parts."
+                keywords={`schedule ${id}, constitution schedule ${id}, south african constitution schedule, 1996 constitution schedule, legal schedules south africa, annexure south africa, schedule text, schedule ${id} south africa, south africa constitutional law, kyc1996`}
+            />
             <Header />
 
             <Container>
