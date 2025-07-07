@@ -6,7 +6,7 @@ export default function Container({children}: {children: ReactNode})
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
     const containerClasses: string[] = ["lg:mx-[5em]", "xl:mx-[11em]", 
-        "pb-15", "2xl:mx-[17em]", "lg:border-x border-solid border-(--text)", "bg-(--background-color)"];
+        "pb-15", "2xl:mx-[17em]", "lg:border-x border-solid border-(--text)", "bg-(--background-color)", "overflow-x-hidden"];
     const containerClassString = containerClasses.join(" ");
 
     return (

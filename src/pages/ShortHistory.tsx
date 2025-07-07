@@ -9,6 +9,7 @@ import type { ImgInfo } from "../types/ImgInfo";
 import { constitutionHistory } from "../types/History";
 import HistoricalEventCard from "../components/HistoricalEventCard";
 import SEO from "../components/SEO";
+import { useEffect } from "react";
 
 // The Short History page's TSX, displays a timeline of the creation of the Constitution
 export default function ShortHistory()
@@ -19,6 +20,27 @@ export default function ShortHistory()
         "alt": "Voters in 1994 queuing to vote in the first all-race democratic elections",
         "attribution": "Denis Farrell/Associated Press"
     };
+
+    // Intersection Observer to add the "observed" class to each historical event card when it comes into view
+    // This class will trigger a CSS animation that makes the card slide in from the left
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("observed");
+            }
+        });
+    });
+
+    useEffect(() => {
+        const events = document.querySelectorAll(".observe");
+
+        if (events.length > 0)
+        {
+            events.forEach((event) => {
+                observer.observe(event);
+            });
+        }
+    })
 
     return (
         <>

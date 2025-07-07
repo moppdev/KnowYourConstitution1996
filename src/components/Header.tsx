@@ -12,7 +12,7 @@ export default function Header()
     // More readable
 
     // Classes for the header
-    const headerClasses: string[] = ["top-0", "p-6", "w-screen", "max-[340px]:w-lvw",
+    const headerClasses: string[] = ["top-0", "p-6", "max-[340px]:w-lvw",
         "bg-(--header-footer-nav)", "text-(--header-footer-nav-text)", "flex items-center justify-between", "sticky", "z-10"];
     const headerClassString = headerClasses.join(" ");
 

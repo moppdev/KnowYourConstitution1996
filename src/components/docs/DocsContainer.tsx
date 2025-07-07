@@ -5,7 +5,7 @@ export default function DocsContainer({ children }: { children: ReactNode })
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
-    const containerClasses: string[] = ["md:grid md:grid-cols-[250px_1fr]"]; //"pb-15", "pt-5"
+    const containerClasses: string[] = ["md:grid md:grid-cols-[250px_1fr] overflow-x-hidden"]; //"pb-15", "pt-5"
     const containerClassString = containerClasses.join(" ");
 
     return (

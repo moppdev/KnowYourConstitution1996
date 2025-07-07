@@ -1,54 +1,66 @@
-# React + TypeScript + Vite
+# KnowYourConstitution1996 (KYC1996)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
+![React Router](https://img.shields.io/badge/React%20Router-CA4245.svg?style=for-the-badge&logo=React-Router&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=Vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Description and Background](#description-and-background)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Description and Background
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**KnowYourConstitution1996** is an open-source website that offers simple, intuitive access to the contents of South Africa's current Constitution. The aim of this project is to make the Constitution as accessible as possible to the general public.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**The inspiration for this** came from my own struggles to look up sections of the Constitution whenever they were mentioned in the news, whether about court cases or controversial Bills like the Expropriation Act. I often had to rely on my hard copy of the Constitution (which not everyone has) or find a government-hosted PDF version (which isn’t always reliable or easy to navigate).
+
+I thought it was **quite the schlep** to do, so I wondered, "Isn't there an easier way to do this?". I searched GitHub and found a few Markdown versions of the Constitution, but they didn’t really solve the accessibility issue.
+
+The core of this website is the [ZAConstitution1996 API](https://github.com/moppdev/ZAConstitution1996), an open-source API containing all the contents of the Constitution.
+
+## Tech Stack
+
+- Vite + React TypeScript
+- React Router
+- Shiki
+- ESLint
+- Axios
+- Tailwind CSS
+- Font Awesome
+
+## Getting Started
+
+First off, clone this repository via entering the following in your terminal of choice:
+
+```bash
+git clone https://github.com/moppdev/KnowYourConstitution1996.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Navigate to the directory:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd KnowYourConstitution1996
 ```
+
+Install all dependencies and run:
+
+```bash
+npm install
+npm run dev
+```
+
+Open a tab in your default browser on your local machine at ```http://localhost:5173``` to see the homepage.
+
+## Contributing
+
+Pull requests are welcome. Please check **[contribution.md](https://github.com/moppdev/KnowYourConstitution1996/blob/dev/CONTRIBUTING.md)** for more information.
+
+## License
+
+This project is licensed under the MIT License.

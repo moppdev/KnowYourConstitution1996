@@ -9,7 +9,7 @@ export default function Footer()
 
     // Classes for the footer
     const footerClasses: string[] = ["bottom-0", "py-7", "inherit", 
-        "w-screen", "bg-(--header-footer-nav)", "text-center", "font-[Kanit]", 
+        "bg-(--header-footer-nav)", "text-center", "font-[Kanit]", 
         "text-(--background-color)"];
     const classString = footerClasses.join(" ");
 

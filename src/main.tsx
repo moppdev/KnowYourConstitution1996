@@ -18,6 +18,7 @@ import DocsAmendments from "./pages/APIDocs/DocsAmendments.tsx";
 import DocsAnnexures from "./pages/APIDocs/DocsAnnexures.tsx";
 import DocsSchedules from "./pages/APIDocs/DocsSchedules.tsx";
 import DocsMain from "./pages/APIDocs/DocsMain.tsx";
+import { NotFound } from "./pages/NotFound.tsx";
 
 createRoot(document.getElementById("root")!).render(
   // Using React Router to use routing for the website
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <AutoScrollToTop />
         <Routes>
+
           <Route index element={<Home />} />
 
           <Route path="contents" element={<ContentsLanding />} />
@@ -46,6 +48,8 @@ createRoot(document.getElementById("root")!).render(
             <Route path="annexures" element={<DocsAnnexures />} />
             <Route path="main" element={<DocsMain />} />
           </Route>
+
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </BrowserRouter>

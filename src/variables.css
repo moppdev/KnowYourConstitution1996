@@ -83,15 +83,6 @@ h2, h3, h4, h5, h6 {
   }
 }
 
-@keyframes emphasise-section {
-  0% {
-    background-color: var(--background-color);
-  }
-  100% {
-    background-color: var(--border-link-button) / 2;
-  }
-}
-
 .drop-card {
   max-height: 0;
   opacity: 0;
@@ -116,11 +107,22 @@ h2, h3, h4, h5, h6 {
   max-height: 4000px;
 }
 
-.--emphasise-section{
-  animation-name: emphasise-section; 
-  animation-duration: 0.5;
-  animation-timing-function: ease-in;
+.observe {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 1.7s ease-in-out;
+  transition-delay: 50ms;
 }
+
+.observed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.observe:nth-of-type(2n) {
+  transition-delay: 320ms;
+}
+
 
 /* Other TailwindCSS variables */
 @theme {  
