@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import HeroImage from "../components/HeroImage";
 import SpeakImage from "../assets/desktop-imgs/ca.jpg";
 import SpeakImageMobile from "../assets/mobile-imgs/ca-mobile.jpg";
-import SpeakImageTablet from "../assets/tablet-imgs/ca-mobile.jpg";
+import SpeakImageTablet from "../assets/tablet-imgs/ca-tablet.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContributingCard from "../components/ContributingCard";
