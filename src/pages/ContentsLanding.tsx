@@ -9,7 +9,9 @@ import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroImage from "../components/HeroImage";
-import ConstitutionImage from "../assets/constitution-feature.jpg";
+import ConstitutionImage from "../assets/desktop-imgs/constitution-feature.jpg";
+import ConstitutionMobileImage from "../assets/mobile-imgs/constitution-feature-mobile.jpg";
+import ConstitutionTabletImage from "../assets/tablet-imgs/constitution-feature-tablet.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContentLandingCard from "../components/ContentLandingCard";
@@ -21,9 +23,24 @@ import SEO from "../components/SEO";
 // It links to all the chapters, annexures, schedules and amendments of the Constitution
 export default function ContentsLanding()
 {
+    // change images used based on the screen size
+    const [src, setSrc] = useState<string>(ConstitutionMobileImage);
+    const width = window.innerWidth;
+
+    useEffect(() => {
+        if (width > 640 && width < 768)
+        {
+            setSrc(ConstitutionTabletImage);
+        }
+        else if (width >= 768)
+        {
+            setSrc(ConstitutionImage);
+        }
+    }, [width])
+
     // Info for the Hero Image
     const imgInfo: ImgInfo = {
-        "src": ConstitutionImage,
+        "src": src,
         "alt": "The hard-copy version of the Constitution laid on a table",
         "attribution": "Corruption Watch"
     };

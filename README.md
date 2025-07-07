@@ -20,7 +20,7 @@
 
 **The inspiration for this** came from my own struggles to look up sections of the Constitution whenever they were mentioned in the news, whether about court cases or controversial Bills like the Expropriation Act. I often had to rely on my hard copy of the Constitution (which not everyone has) or find a government-hosted PDF version (which isn’t always reliable or easy to navigate).
 
-I thought it was **quite the schlep** to do, so I wondered, "Isn't there an easier way to do this?". I searched GitHub and found a few Markdown versions of the Constitution, but they didn’t really solve the accessibility issue.
+I thought it was **quite the schlep** to do, so I wondered, "Isn't there an easier way to do this?". I searched GitHub and found a few Markdown versions of the Constitution, but they didn’t really solve the accessibility issue. So I decided to build this solution.
 
 The core of this website is the [ZAConstitution1996 API](https://github.com/moppdev/ZAConstitution1996), an open-source API containing all the contents of the Constitution.
 

@@ -13,7 +13,7 @@ export default function HeroImage({imgInfo, overlaidText}: {imgInfo: {src: strin
     const textClassString = textClasses.join(" "); 
 
     // Classes for the image itself
-    const imgClasses: string[] = ["object-cover",  "lg:object-fill", "xl:object-scale-down", "2xl:object-fill", "2xl:object-bottom-right", "min-[1700px]:object-[55%_255%]", "md:object-right"];
+    const imgClasses: string[] = ["object-cover", "lg:object-fill", "xl:object-scale-down", "2xl:object-fill", "2xl:object-bottom-right", "min-[1700px]:object-[55%_255%]", "md:object-right"];
     const imgClassString = imgClasses.join(" "); 
 
     // Classes for the overlay div that contains the text

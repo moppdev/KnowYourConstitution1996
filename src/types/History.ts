@@ -1,13 +1,22 @@
 import type { ImgInfo } from "./ImgInfo";
-import QueueImage from "../assets/voting.jpg";
-import SigningImage from "../assets/mandela-signing-document.jpg"
-import ConstitutionImage from "../assets/constitution-feature.jpg"
-import AcceptImage from "../assets/ca-accept.jpg"
-import CODESAImage from "../assets/codesa.jpg"
-import SpeakImage from "../assets/ca.jpg";
-import DraftImage from "../assets/draft.jpg"
-import PublicDraftImage from "../assets/public.jpg"
-import ProtestImage from "../assets/protest.jpg"
+import QueueImageTablet from "../assets/tablet-imgs/voting-tablet.jpg";
+import QueueImageMobile from "../assets/mobile-imgs/voting-mobile.jpg";
+import SigningImageTablet from "../assets/tablet-imgs/mandela-signing-document-tablet.jpg"
+import SigningImageMobile from "../assets/mobile-imgs/mandela-signing-document-mobile.jpg"
+import ConstitutionImageTablet from "../assets/tablet-imgs/constitution-feature-tablet.jpg"
+import ConstitutionImageMobile from "../assets/mobile-imgs/constitution-feature-mobile.jpg"
+import AcceptImageTablet from "../assets/tablet-imgs/ca-accept-tablet.jpg"
+import AcceptImageMobile from "../assets/mobile-imgs/ca-accept-mobile.jpg"
+import CODESAImageTablet from "../assets/tablet-imgs/codesa-tablet.jpg"
+import CODESAImageMobile from "../assets/mobile-imgs/codesa-mobile.jpg"
+import SpeakImageTablet from "../assets/tablet-imgs/ca-tablet.jpg";
+import SpeakImageMobile from "../assets/mobile-imgs/ca-mobile.jpg";
+import DraftImageTablet from "../assets/tablet-imgs/draft-tablet.jpg"
+import DraftImageMobile from "../assets/mobile-imgs/draft-mobile.jpg"
+import PublicDraftImageTablet from "../assets/tablet-imgs/public-tablet.jpg"
+import PublicDraftImageMobile from "../assets/mobile-imgs/public-mobile.jpg"
+import ProtestImageTablet from "../assets/tablet-imgs/protest-tablet.jpg"
+import ProtestImageMobile from "../assets/mobile-imgs/protest-mobile.jpg"
 
 // Type for every card on Short History's contents
 export interface HistoricalEvent
@@ -22,7 +31,7 @@ export interface HistoricalEvent
 export const constitutionHistory: HistoricalEvent[] = [
   {
     imgInfo: {
-      src: CODESAImage,
+      src: (window.innerWidth < 480) ? CODESAImageMobile : CODESAImageTablet,
       alt: "FW De Klerk and Nelson Mandela shaking hands at CODESA",
       attribution: "South African History Online"
     },
@@ -34,7 +43,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: QueueImage,
+      src: (window.innerWidth < 480) ? QueueImageMobile : QueueImageTablet,
       alt: "Voters in 1994 queuing to vote in the first all-race democratic elections",
       attribution: "Denis Farrell/Associated Press"
     },
@@ -45,7 +54,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: SpeakImage,
+      src: (window.innerWidth < 480) ? SpeakImageMobile : SpeakImageTablet,
       alt: "Member of the Constitutional Assembly speaking",
       attribution: "Subash Jeram/Constitutional Assembly"
     },
@@ -55,7 +64,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: PublicDraftImage,
+      src: (window.innerWidth < 480) ? PublicDraftImageMobile : PublicDraftImageTablet,
       alt: "Poster of the public participation campaign",
       attribution: "Constitutional Assembly"
     },
@@ -67,7 +76,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: ProtestImage,
+      src:(window.innerWidth < 480) ? ProtestImageMobile : ProtestImageTablet,
       alt: "Zulu protester holding a placard during a protest",
       attribution: "Paul Weinberg / South Photos / Africa Media Online"
     },
@@ -78,7 +87,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: DraftImage,
+      src: (window.innerWidth < 480) ? DraftImageMobile : DraftImageTablet,
       alt: "Media campaign poster of the Constitutional Assembly",
       attribution: "Constitutional Assembly"
     },
@@ -88,7 +97,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: AcceptImage,
+      src: (window.innerWidth < 480) ? AcceptImageMobile : AcceptImageTablet,
       alt: "Celebrations as the final Constitution is passed by the Constitutional Assembly",
       attribution: "Subash Jeram/Constitutional Assembly"
     },
@@ -100,7 +109,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-      src: SigningImage,
+      src: (window.innerWidth < 480) ? SigningImageMobile : SigningImageTablet,
       alt: "Nelson Mandela signs the 1996 Constitution into law with Cyril Ramaphosa in the background",
       attribution: "Adil Bradlow/AFP"
     },
@@ -117,7 +126,7 @@ export const constitutionHistory: HistoricalEvent[] = [
   },
   {
     imgInfo: {
-        "src": ConstitutionImage,
+        "src": (window.innerWidth < 480) ? ConstitutionImageMobile : ConstitutionImageTablet,
         "alt": "The hard-copy version of the Constitution laid on a table",
         "attribution": "Corruption Watch"
     },

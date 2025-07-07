@@ -2,7 +2,9 @@ import Container from '../components/Container';
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import HeroImage from '../components/HeroImage';
-import SigningImage from "../assets/mandela-signing-document.jpg";
+import SigningImage from "../assets/desktop-imgs/mandela-signing-document.jpg";
+import SigningImageMobile from "../assets/mobile-imgs/mandela-signing-document-mobile.jpg";
+import SigningImageTablet from "../assets/tablet-imgs/mandela-signing-document-tablet.jpg";
 import PageTitle from '../components/PageTitle';
 import HeroAttribution from '../components/HeroAttribution';
 import DidYouKnow from '../components/DidYouKnow';
@@ -10,13 +12,29 @@ import Search from '../components/Search';
 import FAQ from '../components/FAQ';
 import type { ImgInfo } from '../types/ImgInfo';
 import SEO from '../components/SEO';
+import { useEffect, useState } from 'react';
 
 // This is the home page of the website's TSX
 export default function Home() {
 
+    // change images used based on the screen size
+    const [src, setSrc] = useState<string>(SigningImageMobile);
+    const width = window.innerWidth;
+
+    useEffect(() => {
+        if (width > 640 && width < 768)
+        {
+            setSrc(SigningImageTablet);
+        }
+        else if (width >= 768)
+        {
+            setSrc(SigningImage);
+        }
+    }, [width])
+
   // Info for the Hero Image
   const imgInfo: ImgInfo = {
-    "src": SigningImage,
+    "src": src,
     "alt": "Nelson Mandela signs the 1996 Constitution into law with Cyril Ramaphosa in the background",
     "attribution": "Adil Bradlow/AFP"
   };

@@ -2,21 +2,38 @@ import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroImage from "../components/HeroImage";
-import QueueImage from "../assets/voting.jpg";
+import QueueImage from "../assets/desktop-imgs/voting.jpg";
+import QueueMobileImage from "../assets/mobile-imgs/voting-mobile.jpg";
+import QueueTabletImage from "../assets/tablet-imgs/voting-tablet.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import type { ImgInfo } from "../types/ImgInfo";
 import { constitutionHistory } from "../types/History";
 import HistoricalEventCard from "../components/HistoricalEventCard";
 import SEO from "../components/SEO";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // The Short History page's TSX, displays a timeline of the creation of the Constitution
 export default function ShortHistory()
 {
+    // change images used based on the screen size
+    const [src, setSrc] = useState<string>(QueueMobileImage);
+    const width = window.innerWidth;
+
+    useEffect(() => {
+        if (width > 640 && width < 768)
+        {
+            setSrc(QueueTabletImage);
+        }
+        else if (width >= 768)
+        {
+            setSrc(QueueImage);
+        }
+    }, [width])
+
     // Info for the Hero Image
     const imgInfo: ImgInfo = {
-        "src": QueueImage,
+        "src": src,
         "alt": "Voters in 1994 queuing to vote in the first all-race democratic elections",
         "attribution": "Denis Farrell/Associated Press"
     };

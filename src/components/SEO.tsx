@@ -1,7 +1,8 @@
 import { useLocation } from 'react-router';
+import img from '../assets/og.png'
 
 // this component uses React Helmet to change the title of each page and adjust its SEO
-export default function SEO({title, description, keywords, img}: {title: string, description: string, keywords: string, img: string})
+export default function SEO({title, description, keywords}: {title: string, description: string, keywords: string})
 {
     const location = useLocation();
     const canonicalUrl = `https://kyc1996.vercel.app${location.pathname}`;

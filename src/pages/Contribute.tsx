@@ -2,12 +2,15 @@ import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroImage from "../components/HeroImage";
-import SpeakImage from "../assets/ca.jpg";
+import SpeakImage from "../assets/desktop-imgs/ca.jpg";
+import SpeakImageMobile from "../assets/mobile-imgs/ca-mobile.jpg";
+import SpeakImageTablet from "../assets/tablet-imgs/ca-mobile.jpg";
 import PageTitle from "../components/PageTitle";
 import HeroAttribution from "../components/HeroAttribution";
 import ContributingCard from "../components/ContributingCard";
 import type { ImgInfo } from "../types/ImgInfo";
 import SEO from "../components/SEO";
+import { useEffect, useState } from "react";
 
 // The Contribute page shows users how they could contribute to the website or API if they want to
 export default function Contribute()
@@ -33,9 +36,24 @@ export default function Contribute()
     const apiStackClasses: string[] = ["rounded-lg", "border-1", "border-(--border-link-button)", "p-3", "bg-(--header-footer-nav)", "text-(--background-color)", "drop-shadow-lg"];
     const apiStackClassString: string = apiStackClasses.join(" ");
 
+    // change images used based on the screen size
+    const [src, setSrc] = useState<string>(SpeakImageMobile);
+    const width = window.innerWidth;
+
+    useEffect(() => {
+        if (width > 640 && width < 768)
+        {
+            setSrc(SpeakImageTablet);
+        }
+        else if (width >= 768)
+        {
+            setSrc(SpeakImage);
+        }
+    }, [width])
+
     // Info for the Hero Image
     const imgInfo: ImgInfo = {
-        "src": SpeakImage,
+        "src": src,
         "alt": "Member of the Constitutional Assembly speaking",
         "attribution": "Subash Jeram / Constitutional Assembly"
     };
