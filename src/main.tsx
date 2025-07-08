@@ -19,11 +19,18 @@ import DocsAnnexures from "./pages/APIDocs/DocsAnnexures.tsx";
 import DocsSchedules from "./pages/APIDocs/DocsSchedules.tsx";
 import DocsMain from "./pages/APIDocs/DocsMain.tsx";
 import { NotFound } from "./pages/NotFound.tsx";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 createRoot(document.getElementById("root")!).render(
   // Using React Router to use routing for the website
   // All routes declared below
+  
   <StrictMode>
+    {/* Analytics and Speed Insights for performance monitoring */}
+    <Analytics />
+    <SpeedInsights />
+
       <BrowserRouter>
         <AutoScrollToTop />
         <Routes>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+  <!-- Static pages -->
+  <url><loc>https://kyc1996.vercel.app/</loc></url>
+  <url><loc>https://kyc1996.vercel.app/contents</loc></url>
+  <url><loc>https://kyc1996.vercel.app/preamble</loc></url>
+  <url><loc>https://kyc1996.vercel.app/amendments</loc></url>
+  <url><loc>https://kyc1996.vercel.app/history</loc></url>
+  <url><loc>https://kyc1996.vercel.app/contribute</loc></url>
+
+  <!-- API Docs -->
+  <url><loc>https://kyc1996.vercel.app/api-docs</loc></url>
+  <url><loc>https://kyc1996.vercel.app/api-docs/amendments</loc></url>
+  <url><loc>https://kyc1996.vercel.app/api-docs/schedules</loc></url>
+  <url><loc>https://kyc1996.vercel.app/api-docs/annexures</loc></url>
+  <url><loc>https://kyc1996.vercel.app/api-docs/main</loc></url>
+
+  <!-- Dynamic chapters -->
+  <url><loc>https://kyc1996.vercel.app/chapter/1</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/2</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/3</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/4</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/5</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/6</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/7</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/8</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/9</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/10</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/11</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/12</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/13</loc></url>
+  <url><loc>https://kyc1996.vercel.app/chapter/14</loc></url>
+
+  <!-- Dynamic schedules -->
+  <url><loc>https://kyc1996.vercel.app/schedule/1</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/1a</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/2</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/3</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/4</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/5</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/6</loc></url>
+  <url><loc>https://kyc1996.vercel.app/schedule/7</loc></url>
+
+  <!-- Dynamic annexures -->
+  <url><loc>https://kyc1996.vercel.app/annexure/a</loc></url>
+  <url><loc>https://kyc1996.vercel.app/annexure/b</loc></url>
+  <url><loc>https://kyc1996.vercel.app/annexure/c</loc></url>
+  <url><loc>https://kyc1996.vercel.app/annexure/d</loc></url>
+</urlset>
