@@ -23,7 +23,8 @@ export default function HeroImage({imgInfo, overlaidText}: {imgInfo: {src: strin
     // return the component
     return (
         <div id="hero" className={heroClassString}>
-            <img src={imgInfo.src} alt={imgInfo.alt} className={imgClassString}/>
+            <link rel="preload" href={imgInfo.src} as="image" />
+            <img src={imgInfo.src} alt={imgInfo.alt} fetchPriority="high" className={imgClassString}/>
             <div className={overlayClassString}>
                 {overlaidText != "" && <p className={textClassString}>{overlaidText}</p>}
             </div>
