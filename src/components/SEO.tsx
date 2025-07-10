@@ -5,7 +5,7 @@ import img from '../assets/og.png'
 export default function SEO({title, description, keywords}: {title: string, description: string, keywords: string})
 {
     const location = useLocation();
-    const canonicalUrl = `https://kyc1996.vercel.app${location.pathname}`;
+    const canonicalUrl = `https://www.kyc1996.co.za${location.pathname}`;
 
       return (
         <>
