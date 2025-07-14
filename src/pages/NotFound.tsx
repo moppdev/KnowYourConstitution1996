@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router";
 
 // This component is used to display a 404 Not Found page when the user navigates to an invalid route
-export function NotFound()
+export default function NotFound()
 {
     const location = useLocation();
     

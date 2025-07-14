@@ -53,7 +53,8 @@ export default function Home() {
       <SEO 
         title="KYC1996 | Explore South Africa's Rights & Freedoms"
         description="Mine. Yours. Ours. Our rights and freedoms enshrined. Explore South Africa's 1996 Constitution in an accessible, searchable format."
-        keywords="south african constitution, constitution of south africa, constitution of republic of south africa, 1996 constitution south africa, bill of rights south africa, south africa constitution pdf, know your constitution, section 25 constitution, open source, kyc1996"
+        keywords="south africa constitution, constitution of south africa, constitution of republic of south africa, 1996 constitution south africa, bill of rights south africa, south africa constitution pdf, know your constitution, section 25 constitution, open source, kyc1996"
+        heroImgHref={imgInfo.src}
       />
 
       <Header />
@@ -65,7 +66,7 @@ export default function Home() {
 
             <PageTitle title="Mine. Yours. Ours. Our rights and freedoms enshrined."/>
 
-            <h3 className="text-xl mx-5 md:mr-40 lg:mr-60 md:ml-12">Welcome to KnowYourConstitution1996 (KYC1996)!</h3>
+            <h2 className="text-xl mx-5 md:mr-40 lg:mr-60 md:ml-12">Welcome to KnowYourConstitution1996 (KYC1996)!</h2>
 
             <p className="mx-5 md:mx-12 my-5">
               This open-source website provides easy access to the full text of South Africa's current Constitution. 

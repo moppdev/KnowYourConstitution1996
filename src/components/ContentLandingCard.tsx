@@ -38,14 +38,27 @@ export default function ContentLandingCard({type, name, link}: {type: "chapter" 
     {
         // splits the given name by ":" so only e.g. "Chapter 12" is returned
         const splittedName = name.split(":")[0];
-        chapterID = parseInt(splittedName.substring(splittedName.indexOf(" ") + 1));
+        
+        // if the chapter is not the Preamble, get the chapter number from the name
+        // e.g. "Chapter 12" would return 12
+        if (splittedName !== "Preamble")
+        {
+            chapterID = parseInt(splittedName.substring(splittedName.indexOf(" ") + 1));
+        }
     }
     
     useEffect(() => {
         async function fetchSections()
         {
-            const data: SectionsPerChapter[] | null = await getSectionsByChapter(chapterID);
-            setSections(data);
+            if (chapterID > 0 && chapterID < 15)
+            {
+                const data: SectionsPerChapter[] | null = await getSectionsByChapter(chapterID);
+                setSections(data);
+            }
+            else
+            {
+                setSections(null);
+            }
         }
 
         fetchSections();

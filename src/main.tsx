@@ -1,54 +1,63 @@
-import { StrictMode } from "react";
+import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./variables.css";
-import Home from "./pages/Home.tsx";
-import ShortHistory from "./pages/ShortHistory.tsx";
-import Contribute from "./pages/Contribute.tsx";
-import DocsLanding from "./pages/APIDocs/DocsLanding.tsx";
-import ContentsLanding from "./pages/ContentsLanding.tsx";
-import AmendmentsContents from "./pages/AmendmentsContents.tsx";
-import PreambleContents from "./pages/PreambleContents.tsx";
-import ScheduleContents from "./pages/ScheduleContents.tsx";
-import AnnexureContents from "./pages/AnnexureContents.tsx";
-import ChapterContents from "./pages/ChapterContents.tsx";
-import AutoScrollToTop from "./components/AutoScrollToTop.tsx";
-import DocsIndex from "./pages/APIDocs/DocsIndex.tsx";
-import DocsAmendments from "./pages/APIDocs/DocsAmendments.tsx";
-import DocsAnnexures from "./pages/APIDocs/DocsAnnexures.tsx";
-import DocsSchedules from "./pages/APIDocs/DocsSchedules.tsx";
-import DocsMain from "./pages/APIDocs/DocsMain.tsx";
-import { NotFound } from "./pages/NotFound.tsx";
+import AutoScrollToTop from "./components/AutoScrollToTop";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import Loading from "./components/Loading";
+
+// Preload helpers
+function lazyWithPreload(factory: () => Promise<{ default: React.ComponentType<unknown> }>) {
+  const Component = lazy(factory);
+  (Component as React.ComponentType<unknown> & { preload?: typeof factory }).preload = factory;
+  return Component;
+}
+
+// 🟢 Preloaded Pages (first load, high-priority routes)
+const Home = lazyWithPreload(() => import("./pages/Home"));
+const ContentsLanding = lazyWithPreload(() => import("./pages/ContentsLanding"));
+
+// 🟡 Lazy-Loaded Pages (only fetched when needed)
+const ShortHistory = lazy(() => import("./pages/ShortHistory"));
+const Contribute = lazy(() => import("./pages/Contribute"));
+const PreambleContents = lazy(() => import("./pages/PreambleContents"));
+const ChapterContents = lazy(() => import("./pages/ChapterContents"));
+const ScheduleContents = lazy(() => import("./pages/ScheduleContents"));
+const AnnexureContents = lazy(() => import("./pages/AnnexureContents"));
+const AmendmentsContents = lazy(() => import("./pages/AmendmentsContents"));
+
+const DocsLanding = lazy(() => import("./pages/APIDocs/DocsLanding"));
+const DocsIndex = lazy(() => import("./pages/APIDocs/DocsIndex"));
+const DocsAmendments = lazy(() => import("./pages/APIDocs/DocsAmendments"));
+const DocsSchedules = lazy(() => import("./pages/APIDocs/DocsSchedules"));
+const DocsAnnexures = lazy(() => import("./pages/APIDocs/DocsAnnexures"));
+const DocsMain = lazy(() => import("./pages/APIDocs/DocsMain"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 createRoot(document.getElementById("root")!).render(
-  // Using React Router to use routing for the website
-  // All routes declared below
-  
   <StrictMode>
-    {/* Analytics and Speed Insights for performance monitoring */}
     <Analytics />
     <SpeedInsights />
 
-      <BrowserRouter>
-        <AutoScrollToTop />
-        <Routes>
+    <BrowserRouter>
+      <AutoScrollToTop />
 
+      <Suspense fallback={<Loading />}>
+        <Routes>
           <Route index element={<Home />} />
 
           <Route path="contents" element={<ContentsLanding />} />
-
           <Route path="preamble" element={<PreambleContents />} />
-          <Route path="chapter/:id" element={<ChapterContents/>} />
-          <Route path="schedule/:id"  element={<ScheduleContents />} />
-          <Route path="annexure/:id"  element={<AnnexureContents />} />
-          <Route path="amendments"  element={<AmendmentsContents />} />
+          <Route path="chapter/:id" element={<ChapterContents />} />
+          <Route path="schedule/:id" element={<ScheduleContents />} />
+          <Route path="annexure/:id" element={<AnnexureContents />} />
+          <Route path="amendments" element={<AmendmentsContents />} />
 
-          <Route path='history' element={<ShortHistory />}/>
-          <Route path='contribute' element={<Contribute />} />
+          <Route path="history" element={<ShortHistory />} />
+          <Route path="contribute" element={<Contribute />} />
 
-          <Route path='api-docs' element={<DocsLanding />}>
+          <Route path="api-docs" element={<DocsLanding />}>
             <Route index element={<DocsIndex />} />
             <Route path="amendments" element={<DocsAmendments />} />
             <Route path="schedules" element={<DocsSchedules />} />
@@ -57,8 +66,8 @@ createRoot(document.getElementById("root")!).render(
           </Route>
 
           <Route path="*" element={<NotFound />} />
-
         </Routes>
-      </BrowserRouter>
+      </Suspense>
+    </BrowserRouter>
   </StrictMode>
 );

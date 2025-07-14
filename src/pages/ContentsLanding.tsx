@@ -94,7 +94,8 @@ export default function ContentsLanding()
             <SEO 
                 title="KYC1996 | Contents"
                 description="Explore the contents of the Constitution of South Africa, including chapters, schedules, annexures, and amendments. Access the full text and learn about the foundational principles of South Africa's democracy."
-                keywords="constitution contents, south african constitution, 1996 constitution, chapters, schedules, annexures, amendments, full text constitution, democratic principles, kyc1996"
+                keywords="constitution contents, south africa constitution, 1996 constitution, chapters, schedules, annexures, amendments, full text constitution, democratic principles, kyc1996"
+                heroImgHref={imgInfo.src}
             />
             <Header />
                 <Container>
@@ -112,7 +113,7 @@ export default function ContentsLanding()
                     }
 
                     {
-                        !loading && 
+                        !loading && (chapters || annexures || schedules) &&
                         <>
                             {
                                 chapters && 

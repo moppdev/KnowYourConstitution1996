@@ -69,8 +69,11 @@ export default function ChapterContents()
                 setChapter(data);
             }
 
-            const ndrData: NonDerogableRight[] | null = await getNonDerogableRights();
-            setNonDerogableRights(ndrData);
+            if (id == "2")
+            {
+                const ndrData: NonDerogableRight[] | null = await getNonDerogableRights();
+                setNonDerogableRights(ndrData);
+            }
             
             setLoading(false);
         }
@@ -83,7 +86,7 @@ export default function ChapterContents()
             <SEO 
                 title={`KYC1996 | Chapter ${id!}`}
                 description={`Explore the contents of Chapter ${id!} of the Constitution of South Africa, including its sections, subsections, and clauses. Access the full text and learn about the contents in this chapter.`}
-                keywords={`chapter ${id}, constitution chapter ${id}, south african constitution, 1996 constitution, legal chapter ${id}, constitutional law, sections and clauses, chapter ${id} full text, democracy south africa, kyc1996`}
+                keywords={`chapter ${id}, constitution chapter ${id}, south africa constitution, 1996 constitution, legal chapter ${id}, constitutional law, sections and clauses, chapter ${id} full text, democracy south africa, kyc1996`}
             />
             <Header />
 

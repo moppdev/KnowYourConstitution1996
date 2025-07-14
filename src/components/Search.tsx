@@ -16,7 +16,7 @@ export default function Search()
     const [loading, setLoading] = useState(true);
     const [searchData, setSearchData] = useState<UnitedObject | null>(null);
 
-    // get the data needed
+    // function that searches for results among sections, chapters, annexures, schedules to return a list of links to various pages
     useEffect(() => {
         async function fetchData() {
             const data : UnitedObject | null = await getSearchAPIData();
@@ -24,9 +24,8 @@ export default function Search()
         }
 
         fetchData();
-    })
+    }, []);
 
-    // function that searches for results among sections, chapters, annexures, schedules to return a list of links to various pages
     async function searchResults(event: React.ChangeEvent<HTMLInputElement>)
     {
         // make the results div visible

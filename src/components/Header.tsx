@@ -13,7 +13,7 @@ export default function Header()
 
     // Classes for the header
     const headerClasses: string[] = ["top-0", "p-6", "max-[340px]:w-lvw",
-        "bg-(--header-footer-nav)", "text-(--header-footer-nav-text)", "flex items-center justify-between", "sticky", "z-10"];
+        "bg-(--header-footer-nav)", "text-[#E2B864]", "flex items-center justify-between", "sticky", "z-10"];
     const headerClassString = headerClasses.join(" ");
 
     // Classes for the "logo" on the left side of the header

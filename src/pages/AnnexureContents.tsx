@@ -63,7 +63,7 @@ export default function AnnexureContents()
             <SEO
                 title={`KYC1996 | Annexure ${id!.toUpperCase()}`}
                 description="Explore the contents of Annexure A, B, C, or D of the Constitution of South Africa."
-                keywords={`annexure ${id}, constitution annexure ${id}, south african constitution, 1996 constitution, annexures, legal annexures, annexure text, annexure ${id} full text, constitutional documents, kyc1996`}
+                keywords={`annexure ${id}, constitution annexure ${id}, south africa constitution, 1996 constitution, annexures, legal annexures, annexure text, annexure ${id} full text, constitutional documents, kyc1996`}
             />
             <Header />
 

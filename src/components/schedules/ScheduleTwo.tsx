@@ -22,8 +22,8 @@ export default function ScheduleTwoDisplay({schedule}: {schedule: ScheduleTwo})
                                 ? section.sectionText
                                 : schedule.subsections
                                     .map((subsection) => (
-                                        subsection.filter((subsection) => subsection.sectionID == section.sectionID).map((section) => (
-                                            <div className="my-4">
+                                        subsection.filter((subsection) => subsection.sectionID == section.sectionID).map((section, index) => (
+                                            <div className="my-4" key={index}>
                                                 <span className="pr-2">({section.subsectionID})</span>
                                                 <span>{section.subsectionText}</span>
                                             </div>

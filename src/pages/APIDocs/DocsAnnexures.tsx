@@ -24,8 +24,8 @@ export default function DocsAnnexures() {
     return (
         <div id="apidocs-annexures" className="pb-30 sm:pb-65 md:pb-95">
             <SEO
-                description="API documentation for the Annexures controller in ZAConstitution1996, which provides access to information about the annexures of the South African Constitution."
-                keywords="api documentation, annexures api, south african constitution api, zaconstitution1996, 1996 constitution, legal api, open source api, civic tech, kyc1996"
+                description="API documentation for the Annexures controller in ZAConstitution1996, which provides access to information about the annexures of the south africa constitution."
+                keywords="api documentation, annexures api, south africa constitution api, zaconstitution1996, 1996 constitution, legal api, open source api, civic tech, kyc1996"
                 title="KYC1996 | API Docs - Annexures"
             />
 

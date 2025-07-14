@@ -22,6 +22,7 @@ export default function CodeSnippet({lines, lang}: {lines: string, lang: string}
                     {
                         pre(node)
                         {
+                            // add classes to the code block itself
                             this.addClassToHast(node, 'p-4 rounded-md text-xs max-[640px]:w-fit');
                         }
                     }
@@ -32,7 +33,8 @@ export default function CodeSnippet({lines, lang}: {lines: string, lang: string}
         }
 
         shikiTransform();
-    });
+    }, [lines, lang]);
+
     return (
         <div className={snippetClassString} id={`snippet-${lang}`} dangerouslySetInnerHTML={{ __html: code }} />
     )

@@ -13,7 +13,7 @@ export default function DocsIndex()
         <div id="apidocs-index" className="w-full pb-30 sm:pb-65 md:pb-95">
             <SEO
                 description="API documentation for the ZAConstitution1996 project, providing public access to South Africa's 1996 Constitution."
-                keywords="api documentation, zaconstitution1996, south african constitution api, 1996 constitution, legal api, open data, civic tech, kyc1996"
+                keywords="api documentation, zaconstitution1996, south africa constitution api, 1996 constitution, legal api, open data, civic tech, kyc1996"
                 title="KYC1996 | API Docs"
             />
 

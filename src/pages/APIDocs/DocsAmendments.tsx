@@ -15,8 +15,8 @@ export default function DocsAmendments() {
     return (
         <div id="apidocs-amendments" className="pb-30 sm:pb-65 md:pb-95">
             <SEO
-                description="API documentation for the Amendments controller in ZAConstitution1996, which provides access to information about amendments to the South African Constitution."
-                keywords="south african constitution, constitutional amendments, api documentation, zaconstitution1996, amendments controller, api reference, south africa law, government api, legal framework, kyc1996"
+                description="API documentation for the Amendments controller in ZAConstitution1996, which provides access to information about amendments to the south africa constitution."
+                keywords="south africa constitution, constitutional amendments, api documentation, zaconstitution1996, amendments controller, api reference, south africa law, government api, legal framework, kyc1996"
                 title="KYC1996: API Docs - Amendments"
             />
 

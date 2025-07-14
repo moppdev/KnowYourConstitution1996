@@ -5,7 +5,7 @@ export default function PageTitle({title}: {title: string})
     // More readable
 
     // Classes for the title
-    const titleClasses: string[] = ["text-2xl", "text-center", "md:text-left", "py-10", "md:pl-14 text-3xl"];
+    const titleClasses: string[] = ["text-2xl", "text-center", "md:text-left", "py-10", "md:pl-13 text-3xl"];
     const titleClassString: string = titleClasses.join(" ");
 
     // return the component

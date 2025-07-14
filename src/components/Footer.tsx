@@ -19,7 +19,7 @@ export default function Footer()
 
     return (
         <footer id='footer' className={classString}>
-            <a href="https://github.com/moppdev/KnowYourConstitution1996" target="_blank">
+            <a href="https://github.com/moppdev/KnowYourConstitution1996" id='github-footer-link' target="_blank">
                 <FontAwesomeIcon icon={faGithub} className={githubClassString}/>
             </a>
 

@@ -77,8 +77,8 @@ export default function ScheduleContents()
         <>
             <SEO 
                 title={`KYC1996 | Schedule ${id!.toUpperCase()}`}
-                description="Contents of the Schedules in the South African Constitution, 1996, including the text of each schedule and its parts."
-                keywords={`schedule ${id}, constitution schedule ${id}, south african constitution schedule, 1996 constitution schedule, legal schedules south africa, annexure south africa, schedule text, schedule ${id} south africa, south africa constitutional law, kyc1996`}
+                description="Contents of the Schedules in the south africa constitution, 1996, including the text of each schedule and its parts."
+                keywords={`schedule ${id}, constitution schedule ${id}, south africa constitution schedule, 1996 constitution schedule, legal schedules south africa, annexure south africa, schedule text, schedule ${id} south africa, south africa constitutional law, kyc1996`}
             />
             <Header />
 

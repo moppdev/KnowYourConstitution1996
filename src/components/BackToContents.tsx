@@ -5,7 +5,7 @@ import { NavLink } from "react-router";
 // Add 
 export default function BackToContents()
 {
-    const buttonClasses: string[] = ["text-l", "lg:ml-13", "lg:mt-11", "md:ml-13", "mt-8", "ml-6", "p-3", "rounded-md", 
+    const buttonClasses: string[] = ["text-l", "lg:ml-13", "lg:mt-11", "md:ml-13", "mt-8", "ml-6", "p-5", "rounded-md", 
         "border-2", "border-(--header-footer-nav)", "text-(--header-footer-nav)",
         "hover:bg-(--header-footer-nav)/20 hover:border-(--border-link-button)"];
     const buttonClassString: string = buttonClasses.join(" ");

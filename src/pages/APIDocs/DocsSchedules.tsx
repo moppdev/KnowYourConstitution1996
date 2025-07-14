@@ -25,8 +25,8 @@ export default function DocsSchedules() {
         <div id="apidocs-schedules" className="pb-30 sm:pb-65 md:pb-95">
             <SEO
                 title="KYC1996 | API Docs - Schedules"
-                description="API documentation for the Schedules controller in ZAConstitution1996, which provides access to information about the contents of the South African Constitution's schedules"
-                keywords="api documentation, schedules api, zaconstitution1996, south african constitution api, 1996 constitution, legal api, restful api, api reference, open source api, kyc1996"
+                description="API documentation for the Schedules controller in ZAConstitution1996, which provides access to information about the contents of the south africa constitution's schedules"
+                keywords="api documentation, schedules api, zaconstitution1996, south africa constitution api, 1996 constitution, legal api, restful api, api reference, open source api, kyc1996"
             />
             
             <PageTitle title="Schedules" />

@@ -40,15 +40,15 @@ export default function ShortHistory()
 
     // Intersection Observer to add the "observed" class to each historical event card when it comes into view
     // This class will trigger a CSS animation that makes the card slide in from the left
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("observed");
-            }
-        });
-    });
-
     useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("observed");
+                }
+            });
+        });
+
         const events = document.querySelectorAll(".observe");
 
         if (events.length > 0)
@@ -57,7 +57,11 @@ export default function ShortHistory()
                 observer.observe(event);
             });
         }
-    })
+        else
+        {
+            console.error("Could not find historical events to observe");
+        }
+    }, []);
 
     return (
         <>
@@ -65,6 +69,7 @@ export default function ShortHistory()
                 description="A short history of the Constitution of South Africa, 1996, including key events leading to its adoption"
                 keywords="constitution of south africa, 1996 constitution, south african democracy, apartheid, constitutional negotiations, constitutional assembly, interim constitution, codesa, mandela, democratic transition"
                 title="KYC1996 | Short History of the Constitution"
+                heroImgHref={imgInfo.src}
             />
             <Header />
                 <Container>

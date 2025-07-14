@@ -63,8 +63,9 @@ export default function Contribute()
         <>
             <SEO
                 description="Contribute to the KYC1996 project, which provides public access to South Africa's 1996 Constitution. Learn how to contribute to the website or ZAConstitution1996 API."
-                keywords="contribute, kyc1996, open source, south african constitution, 1996 constitution, legal api, zaconstitution1996, civic tech, public access, constitution project"
+                keywords="contribute, kyc1996, open source, south africa constitution, 1996 constitution, legal api, zaconstitution1996, civic tech, public access, constitution project"
                 title="KYC1996 | Contributions"
+                heroImgHref={imgInfo.src}
             />
             <Header />
                 <Container>

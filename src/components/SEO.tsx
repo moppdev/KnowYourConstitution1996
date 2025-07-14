@@ -2,7 +2,7 @@ import { useLocation } from 'react-router';
 import img from '../assets/og.png'
 
 // this component uses React Helmet to change the title of each page and adjust its SEO
-export default function SEO({title, description, keywords}: {title: string, description: string, keywords: string})
+export default function SEO({title, description, keywords, heroImgHref}: {title: string, description: string, keywords: string, heroImgHref?: string})
 {
     const location = useLocation();
     const canonicalUrl = `https://www.kyc1996.co.za${location.pathname}`;
@@ -14,6 +14,9 @@ export default function SEO({title, description, keywords}: {title: string, desc
           <meta name="description" content={description} />
           <link rel='canonical' href={canonicalUrl} />
           <meta name="keywords" content={keywords}/>
+
+          {/* Preload hero image */}
+          {heroImgHref && <link rel="preload" as="image" href={heroImgHref} fetchPriority="high" />}
 
           {/* Open Graph */}
           <meta property="og:title" content={title} />
