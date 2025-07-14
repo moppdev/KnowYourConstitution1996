@@ -188,7 +188,7 @@ export default function Search()
 
                                 if ("annexureTitle" in result) {
                                     return (
-                                        <NavLink key={`AR` + result.annexureID} to={`annexure/${result.annexureID}`}>
+                                        <NavLink key={`AR` + result.annexureID} to={`annexure/${result.annexureID.toLowerCase()}`}>
                                             <div className={resultClassString}>
                                                 {`Annexure ${result.annexureID}: ${result.annexureTitle}`}
                                             </div>
