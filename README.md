@@ -26,17 +26,20 @@ The core of this website is the [ZAConstitution1996 API](https://github.com/mopp
 
 ## Tech Stack
 
-- Vite + React TypeScript
-- React Router
-- Shiki
-- ESLint
-- Axios
-- Tailwind CSS
-- Font Awesome
+- [Vite](https://vite.dev/guide/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [React Router](https://reactrouter.com/start/modes#declarative)
+- [Shiki](https://shiki.style/guide/install)
+- [ESLint](https://eslint.org/docs/latest/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite)
+- [Font Awesome](https://docs.fontawesome.com/)
+- [npm](https://docs.npmjs.com/)
 
 ## Getting Started
 
-First off, clone this repository via entering the following in your terminal of choice:
+First off, clone this repository by entering the following in your terminal of choice:
 
 ```bash
 git clone https://github.com/moppdev/KnowYourConstitution1996.git
