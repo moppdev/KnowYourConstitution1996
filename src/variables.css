@@ -1,13 +1,13 @@
 /* Import TailwindCSS */
 @import "tailwindcss";
+@import "../src/fonts.css";
 
 /* 
     Font PSA: They're called in index.html
 
     Use...
 
-    Bitter Regular - H1s
-    Raleway - sub headings (h2 onward)
+    Raleway -  All Headings
     Kanit Light - paragraphs
     Kanit Extra Light - small paragraphs
     Raleway Medium - small sub headings
@@ -25,8 +25,8 @@ p, div {
 }
 
 h1 {
-    font-family: "Bitter", serif;
-    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
 }
 
 h2, h3, h4, h5, h6 {

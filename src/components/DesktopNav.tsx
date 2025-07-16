@@ -15,11 +15,11 @@ export default function DesktopNav()
     const desktopNavString: string = desktopNavClasses.join(" ");
     
     // classes for the list items in the desktop nav
-    const listItemClasses: string[] = ["lg:pr-12", "pr-8", "font-bold", "font-[Bitter]"];
+    const listItemClasses: string[] = ["lg:pr-12", "pr-8", "font-[400]", "font-[Kanit]"];
     const listItemString: string = listItemClasses.join(" ");
 
     // classes for the last link in the list
-    const lastLinkClasses: string[] = ["lg:pr-10", "font-bold", "font-[Bitter]"];
+    const lastLinkClasses: string[] = ["lg:pr-10", "font-[400]", "font-[Kanit]"];
     const lastLinkString: string = lastLinkClasses.join(" ");
 
     // classes for the active link in the desktop nav
