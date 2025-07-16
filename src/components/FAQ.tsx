@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { Factoid } from "../types/DYK";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 // This component returns the FAQs as a whole
 export default function FAQ()
@@ -76,9 +78,12 @@ function FAQCard({title, content}: Factoid)
     // return the card
     return (
         <div className={faqCardClassString} onClick={onFAQClick}>
-            <h4 className="ml-4 font-bold">
-                {title}
-            </h4>
+            <div className="flex justify-between">
+                <h4 className="ml-4 font-bold">
+                    {title}
+                </h4>
+                <FontAwesomeIcon icon={clicked ? faChevronUp : faChevronDown} className="mr-4 mt-0.5 text-lg cursor-pointer" />
+            </div>
             <div className={faqContentClassString}>
                 {content}
             </div>

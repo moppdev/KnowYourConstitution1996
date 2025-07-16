@@ -1,11 +1,11 @@
-// This component returns a hero image for all pages except those that handle api DOCS
+ // This component returns a hero image for all pages except those that handle api DOCS
 export default function HeroImage({imgInfo, overlaidText}: {imgInfo: {src: string, alt: string}, overlaidText: string})
 {
     // Get the TailwindCSS classes into a string array and join them as a space-separated string (use if two or more classes are needed)
     // More readable
 
-    // Classes for the hero image
-    const heroClasses: string[] = [ "md:max-h-130", "overflow-hidden", "relative"];
+    // Classes for the hero image container
+    const heroClasses: string[] = ["relative", "aspect-[16/9] xl:aspect-[16/7]", "overflow-hidden", "w-full"];
     const heroClassString = heroClasses.join(" "); 
 
     // Classes for the text overlaid on the hero image
@@ -13,7 +13,7 @@ export default function HeroImage({imgInfo, overlaidText}: {imgInfo: {src: strin
     const textClassString = textClasses.join(" "); 
 
     // Classes for the image itself
-    const imgClasses: string[] = ["object-cover", "lg:object-fill", "xl:object-scale-down", "2xl:object-fill", "2xl:object-bottom-right", "min-[1700px]:object-[55%_255%]", "md:object-right"];
+    const imgClasses: string[] = ["absolute", "inset-0", "w-full", "h-full", "object-cover", "lg:object-fill", "xl:object-scale-down", "2xl:object-fill", "2xl:object-bottom-right", "min-[1700px]:object-[55%_255%]", "md:object-right"];
     const imgClassString = imgClasses.join(" "); 
 
     // Classes for the overlay div that contains the text
@@ -24,10 +24,11 @@ export default function HeroImage({imgInfo, overlaidText}: {imgInfo: {src: strin
     return (
         <div id="hero" className={heroClassString}>
             <link rel="preload" href={imgInfo.src} as="image" />
-            <img src={imgInfo.src} alt={imgInfo.alt} fetchPriority="high" className={imgClassString}/>
+            <img src={imgInfo.src} alt={imgInfo.alt} fetchPriority="high" loading="eager" decoding="async" className={imgClassString}/>
             <div className={overlayClassString}>
                 {overlaidText != "" && <p className={textClassString}>{overlaidText}</p>}
             </div>
         </div>
     )
 }
+

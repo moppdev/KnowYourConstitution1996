@@ -3,7 +3,7 @@
 @import "../src/fonts.css";
 
 /* 
-    Font PSA: They're called in index.html
+    Font PSA: They're called in fonts.css
 
     Use...
 
@@ -36,7 +36,7 @@ h2, h3, h4, h5, h6 {
 
 .dyk-paragraphs {
     font-family: "Kanit", sans-serif;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 .dyk-headings {

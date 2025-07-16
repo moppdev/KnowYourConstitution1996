@@ -9,13 +9,14 @@ export default function HistoricalEventCard({historicalEvent}: {historicalEvent:
     const attributionClassString: string = attributionClasses.join(" ");
 
     const cardClasses: string[] = ["my-4", "border-(--border-link-button) border-2", "rounded-md", "md:max-w-1/2", 
-        "even:justify-self-end-safe", "lg:max-w-55/100", "lg:even:float-right", "lg:odd:float-left", "observe"];
+        "even:justify-self-end-safe", "lg:max-w-55/100", "lg:even:float-right", "lg:odd:float-left", historicalEvent.title === "The Interim Constitution is Adopted" ? "" : "observe" ];
+        // the observe class is only added to all cards except the first one with the title "The Interim Constitution is Adopted" to try and keep CLS low
     const cardClassString: string = cardClasses.join(" ");
 
     return (
         <div className={cardClassString}>
-            <div className="md:max-h-300">
-                <img className="" src={historicalEvent.imgInfo.src} alt={historicalEvent.imgInfo.alt} loading="lazy" />
+            <div className="aspect-[16/5] relative">
+                <img className="" src={historicalEvent.imgInfo.src} alt={historicalEvent.imgInfo.alt} loading="lazy" decoding="async"/>
                 <p className={attributionClassString}><FontAwesomeIcon icon={faCopyright} /> {historicalEvent.imgInfo.attribution}</p>
             </div>
             <div className="mx-4 py-4">
