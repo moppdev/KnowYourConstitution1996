@@ -6,7 +6,7 @@ import type { Chapter, FullChapter, NonDerogableRight, Preamble, Section, Sectio
 // Declare a new base Axios instance
 const apiBase = axios.create({
     baseURL: "https://constitution1996.runasp.net/api/v1/main",
-    timeout: 6000
+    timeout: 7000
 });
 
 // Gets the Preamble
