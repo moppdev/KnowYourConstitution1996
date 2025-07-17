@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { codeToHtml } from "shiki";
 
 // this compoment display code snippets using Shiki library
-export default function CodeSnippet({lines, lang}: {lines: string, lang: string})
+export default function CodeSnippet({lines, lang, type}: {lines: string, lang: string, type?: string})
 {
     const [code, setCode] = useState("");
 
@@ -23,7 +23,7 @@ export default function CodeSnippet({lines, lang}: {lines: string, lang: string}
                         pre(node)
                         {
                             // add classes to the code block itself
-                            this.addClassToHast(node, 'p-4 rounded-md text-xs max-[640px]:w-fit h-[270px]');
+                            this.addClassToHast(node, `p-4 rounded-md text-xs max-[640px]:w-fit ${type === "code" ? "h-[270px]" : ""}`);
                         }
                     }
                 ]
@@ -33,7 +33,7 @@ export default function CodeSnippet({lines, lang}: {lines: string, lang: string}
         }
 
         shikiTransform();
-    }, [lines, lang]);
+    }, [lines, lang, type]);
 
     return (
         <div className={snippetClassString} id={`snippet-${lang}`} dangerouslySetInnerHTML={{ __html: code }} />

@@ -109,7 +109,7 @@ puts response.body`)
                         <option value="php" className="text-(--text)">PHP</option>
                     </select>
             </div>
-            <CodeSnippet lang={lang} lines={lines} />
+            <CodeSnippet lang={lang} lines={lines} type="code"/>
         </>
 
     )
