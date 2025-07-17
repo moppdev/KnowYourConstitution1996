@@ -58,14 +58,14 @@ export default function PreambleContents()
                     <PageTitle title={`Preamble to the Constitution`} />
 
                     { !loading && preamble && (
-                            <div id="preamble-contents" className={preambleClassString}>
+                            <section id="preamble-contents" className={preambleClassString}>
                                 {
                                     /* Split the preamble by ";" and return each line as a p element */
                                     (preamble.preambleContents.split(";").map((line, index) => (
                                         <p key={`preamble-${index}`} className={lineClassString}>{line}</p>
                                     )))
                                 }
-                            </div>
+                            </section>
                         )
                     }
 

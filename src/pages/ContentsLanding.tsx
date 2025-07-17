@@ -61,6 +61,7 @@ export default function ContentsLanding()
     // Call the list of chapters and annexures from the API
     // change the state variables with useEffect
     useEffect(() => {
+        setLoading(true);
         // async function that gets the chapters
         async function fetchChapters()
         {
@@ -82,11 +83,16 @@ export default function ContentsLanding()
             setSchedules(data);
         }
 
-        fetchChapters();
-        fetchAnnexures();
-        fetchSchedules();
+        async function unitedCaller()
+        {
+            await fetchChapters();
+            await fetchAnnexures();
+            await fetchSchedules();
 
-        setLoading(false);
+            setLoading(false);
+        }
+
+        unitedCaller();
     }, [])
 
     return (
@@ -113,7 +119,7 @@ export default function ContentsLanding()
                     }
 
                     {
-                        !loading && (chapters || annexures || schedules) &&
+                        !loading &&
                         <>
                             {
                                 chapters && 

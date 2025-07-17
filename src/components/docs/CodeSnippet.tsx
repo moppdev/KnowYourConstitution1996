@@ -23,7 +23,7 @@ export default function CodeSnippet({lines, lang}: {lines: string, lang: string}
                         pre(node)
                         {
                             // add classes to the code block itself
-                            this.addClassToHast(node, 'p-4 rounded-md text-xs max-[640px]:w-fit');
+                            this.addClassToHast(node, 'p-4 rounded-md text-xs max-[640px]:w-fit h-[270px]');
                         }
                     }
                 ]

@@ -77,7 +77,7 @@ export default function Contribute()
 
                     <PageTitle title="Contributing" />
 
-                    <div id="contribute-text" className="mx-4 md:mx-14">
+                    <section id="contribute-text" className="mx-4 md:mx-14">
                         <p className="mb-4 font-bold">
                             Feeling contribut-y? Well, have I got the page for you!
                         </p>
@@ -118,7 +118,7 @@ export default function Contribute()
                         <p>
                             To get started, click/touch either of the cards below, which will take you to each GitHub repository, to contribute to the website or API.
                         </p>
-                    </div>
+                    </section>
 
                     <div id="contributing-card-holder" className={cardHolderClassString}> 
                         <ContributingCard cardType={"website"} />

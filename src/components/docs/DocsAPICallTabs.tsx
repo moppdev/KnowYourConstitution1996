@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import CodeSnippet from "./CodeSnippet";
 
 // this component will show how to call a certain route endpoint in the API in multiple languages
@@ -17,9 +17,13 @@ export default function DocsAPICallTabs({link}: {link: string})
     const divClasses: string[] = ["mx-5", "mb-6", "md:ml-14", "lg:mr-65", "rounded-md", "bg-[#ebe5dd]", " w-fit", "flex p-2 gap-5 pb-3", "border-2 border-(--border-link-button)"];
     const divClassString: string = divClasses.join(" ");
 
-    useEffect(() => {
-            // depending on language, change the lines (code)
-    switch (lang)
+    // on click event that changes the language of the snippet
+    const changeLang = (event: ChangeEvent<HTMLSelectElement>) => {
+        const value: "javascript" | "csharp" | "python" | "go" | "ruby" | "php" | "text" = event.target.value as "javascript" | "csharp" | "python" | "go" | "ruby" | "php" | "text";
+        setLang(value);
+
+         // depending on language, change the lines (code)
+    switch (value)
     {
         case "javascript":
             setLines(`fetch('${fullLink}')
@@ -89,19 +93,14 @@ puts response.body`)
             setLines(`curl ${fullLink}`);
         break;
     }
-    }, [lang, link, fullLink])
-
-    // on click event that changes the language of the snippet
-    const changeLang = (event: ChangeEvent<HTMLSelectElement>) => {
-        setLang(event.target.value as typeof lang)
     };
 
     return (
         <>
             <div id="route-call-snippet-selector" className={divClassString}>
                     <label htmlFor="selector">Select your language:</label>
-                    <select name="selector" onChange={changeLang}>
-                        <option value="text" selected className="text-(--text)">cURL</option>
+                    <select name="selector" value={lang} id="selector" onChange={(event) => changeLang(event)}>
+                        <option value="text" className="text-(--text)">cURL</option>
                         <option value="javascript" className="text-(--text)">JavaScript</option>
                         <option value="csharp" className="text-(--text)">C#</option>
                         <option value="python" className="text-(--text)">Python</option>

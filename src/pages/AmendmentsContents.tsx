@@ -61,27 +61,29 @@ export default function AmendmentsContents()
                     <PageTitle title={`Amendments to the Constitution`} />
 
                     { !loading && amendments && amendments.length > 0 && (
-                            <table className={tableClassString}>
-                                <caption className="caption-top">
-                                    The table below contains a list of all the amendments to the Constitution of South Africa, 1996. - <FontAwesomeIcon icon={faCopyright} /> Juta
-                                </caption>
-                                <thead>
-                                    <tr key={"amendment-table-header"}>
-                                        <th className={headingClassString}>Amendment Name</th>
-                                        <th className={headingClassString}>Date of Effect</th>
-                                        <th className={headingClassString}>Reference</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {amendments.map((amendment) => (
-                                        <tr key={amendment.amendmentTitle}>
-                                            <td className={cellClassString}>{amendment.amendmentTitle}</td>
-                                            <td className={cellClassString}>{new Date(amendment.dateOfEffect).toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</td>
-                                            <td className={cellClassString}>{amendment.reference}</td>
+                            <section id="amendments-contents">
+                                <table className={tableClassString}>
+                                    <caption className="caption-top">
+                                        The table below contains a list of all the amendments to the Constitution of South Africa, 1996. - <FontAwesomeIcon icon={faCopyright} /> Juta
+                                    </caption>
+                                    <thead>
+                                        <tr key={"amendment-table-header"}>
+                                            <th className={headingClassString}>Amendment Name</th>
+                                            <th className={headingClassString}>Date of Effect</th>
+                                            <th className={headingClassString}>Reference</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {amendments.map((amendment) => (
+                                            <tr key={amendment.amendmentTitle}>
+                                                <td className={cellClassString}>{amendment.amendmentTitle}</td>
+                                                <td className={cellClassString}>{new Date(amendment.dateOfEffect).toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</td>
+                                                <td className={cellClassString}>{amendment.reference}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </section>
                         )
                     }
 
