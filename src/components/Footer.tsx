@@ -24,7 +24,7 @@ export default function Footer()
             </a>
 
             <p>
-                Made with ❤️ by Marco Oppel and other, awesome contributors
+                Made by Marco Oppel and other contributors
             </p>
         </footer>
     )
